@@ -85,7 +85,7 @@ class CLTrainer(Trainer):
                     self.deepspeed.save_checkpoint(output_dir)
 
                 # Save optimizer and scheduler
-                if self.sharded_dpp:
+                if self.sharded_ddp:
                     self.optimizer.consolidate_state_dict()
 
                 if is_torch_tpu_available():
