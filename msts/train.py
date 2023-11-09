@@ -5,7 +5,6 @@ import sys
 import transformers
 from transformers import (
     CONFIG_MAPPING,
-    MODEL_FOR_MASKED_LM_MAPPING,
     AutoConfig,
     AutoModelForMaskedLM,
     AutoTokenizer,
@@ -18,14 +17,13 @@ from transformers.trainer_utils import is_main_process
 from datasets import load_dataset
 
 from modeling.model import RobertaForCL, BertForCL
-from modeling.model import CLTrainer
+from modeling.trainer import CLTrainer
 from arguments import ModelArguments, DataTrainingArguments, OurTrainingArguments
 from data import CustomDataCollatorWithPadding
 
 
 logger = logging.getLogger(__name__)
-MODEL_CONFIG_CLASSES = list(MODEL_FOR_MASKED_LM_MAPPING.keys())
-MODEL_TYPES = tuple(conf.model_type for conf in MODEL_CONFIG_CLASSES)
+
 
 
 def main():

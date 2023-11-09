@@ -5,6 +5,7 @@ import time
 import warnings
 import numpy as np  
 from packaging import version
+from typing import Any, Dict, Optional, Union, List
 
 from transformers import Trainer
 from transformers.modeling_utils import PreTrainedModel
@@ -27,7 +28,6 @@ from transformers.trainer_pt_utils import reissue_pt_warnings
 from transformers.utils import logging
 
 import torch
-from typing import Any, Dict, Optional, Union
 from torch.utils.data.dataloader import DataLoader
 from torch.utils.data.distributed import DistributedSampler
 
@@ -47,8 +47,6 @@ if version.parse(torch.__version__) >= version.parse("1.6"):
 if is_datasets_available():
     import datasets
 
-from transformers.trainer import _model_unwrap
-
 
 logger = logging.get_logger(__name__)
 
@@ -62,7 +60,7 @@ class CLTrainer(Trainer):
 
         # In all cases, including ddp/dp/deepspeed, self.model is always a reference to the model we
         # want to save.
-        assert _model_unwrap(model) is self.model, "internal model should be a reference to self.model"
+        #assert _model_unwrap(model) is self.model, "internal model should be a reference to self.model"
 
         # Determine the new best metric / best model checkpoint
         if metrics is not None and self.args.metric_for_best_model is not None:
@@ -154,7 +152,7 @@ class CLTrainer(Trainer):
             if self.is_world_process_zero():
                 self._rotate_checkpoints(use_mtime=True)
     
-    def train(self, model_path: Optional[str] = None, trial: Union["optuna.Trial", Dict[str, Any]] = None):
+    def train(self, model_path: Optional[str] = None, trial: Union["optuna.Trial", Dict[str, Any]] = None, ignore_keys_for_eval: Optional[List[str]] = None):
         """
         Main training entry point.
 
@@ -240,7 +238,7 @@ class CLTrainer(Trainer):
             model = torch.nn.DataParallel(model)
 
         # Distributed training (should be after apex fp16 initialization)
-        if self.sharded_dpp:
+        if self.sharded_ddp:
             model = ShardedDDP(model, self.optimizer)
         elif self.args.local_rank != -1:
             model = torch.nn.parallel.DistributedDataParallel(
@@ -383,8 +381,11 @@ class CLTrainer(Trainer):
                     # Gradient clipping
                     if self.args.max_grad_norm is not None and self.args.max_grad_norm > 0 and not self.deepspeed:
                         # deepspeed does its own clipping
-
-                        if self.use_amp:
+                        if self.do_grad_scaling:
+                            # Reduce gradients first for XLA
+                            if is_torch_tpu_available():
+                                gradients = xm._fetch_gradients(self.optimizer)
+                                xm.all_reduce("sum", gradients, scale=1.0 / xm.xrt_world_size())
                             # AMP: gradients need unscaling
                             self.scaler.unscale_(self.optimizer)
 
@@ -399,15 +400,26 @@ class CLTrainer(Trainer):
                             )
 
                     # Optimizer step
-                    if is_torch_tpu_available():
-                        xm.optimizer_step(self.optimizer)
-                    elif self.use_amp:
+                    optimizer_was_run = True
+                    if self.deepspeed:
+                        pass  # called outside the loop
+                    elif is_torch_tpu_available():
+                        if self.do_grad_scaling:
+                            self.scaler.step(self.optimizer)
+                            self.scaler.update()
+                        else:
+                            xm.optimizer_step(self.optimizer)
+                    elif self.do_grad_scaling:
+                        scale_before = self.scaler.get_scale()
                         self.scaler.step(self.optimizer)
                         self.scaler.update()
+                        scale_after = self.scaler.get_scale()
+                        optimizer_was_run = scale_before <= scale_after
                     else:
                         self.optimizer.step()
                     
-                    self.lr_scheduler.step()
+                    if optimizer_was_run and not self.deepspeed:
+                        self.lr_scheduler.step()
 
                     model.zero_grad()
 
@@ -415,13 +427,14 @@ class CLTrainer(Trainer):
                     self.state.epoch = epoch + (step + 1) / steps_in_epoch
                     self.control = self.callback_handler.on_step_end(self.args, self.state, self.control)
 
-                    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch)
+                    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+
 
                 if self.control.should_epoch_stop or self.control.should_training_stop:
                     break
 
             self.control = self.callback_handler.on_epoch_end(self.args, self.state, self.control)
-            self._maybe_log_save_evaluate(tr_loss, model, trial, epoch)
+            self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
 
             if self.args.tpu_metrics_debug or self.args.debug:
                 if is_torch_tpu_available():
