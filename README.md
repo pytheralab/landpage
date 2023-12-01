@@ -15,9 +15,9 @@ Then run the following script to install the remaining dependencies,
 `pip install -r requirements.txt`
 
 ## Training
-# Data
-
-# Training scripts
+### Data
+Update soon . . .
+### Training scripts
 We provide example training scripts for both supervised VSimCSE. In run_sup_example.sh we give a multiple-GPU example for the supervised version. Both scripts call train.py for training. We explain the arguments in following:
 
 - `--train_file`: Training file path. We support "txt" files (one line for one sentence) and "csv" files (2-column: pair data with no hard negative; 3-column: pair data with one corresponding hard negative instance). You can use our provided Wikipedia or NLI data, or you can use your own data with the same format.
@@ -34,6 +34,13 @@ We provide example training scripts for both supervised VSimCSE. In run_sup_exam
 
 All the other arguments are standard Huggingface's transformers training arguments. Some of the often-used arguments are: `--output_dir, --learning_rate, --per_device_train_batch_size.`
 
+## Evaluate plot images
+```sh
+bash scripts/analysis_embds.sh
+```
+In left,the sentence embeddings from different languages areclearly separated into two clusters. In right, after training, the embedding space becomes indistin-guishable for different languages, and the parallel sentences are aligned to each other.
 
+![](images/mSimCSE.png)
+ 
 ## License
 Copyright &copy; 2023 [Pythera AI](https://github.com/pytheralab). All rights reserved.
