@@ -43,7 +43,7 @@
           "interest": "カメラAI"
         }
       ],
-      "cta_primary_label": "業務診断を予約",
+      "cta_primary_label": "お問い合わせ",
       "cta_primary_href": "#lien-he",
       "cta_secondary_label": "導入の流れを見る",
       "cta_secondary_href": "#trien-khai",
@@ -439,7 +439,7 @@
         ]
       },
       "cta_text": "どの業務からAIを導入すべきか知りたいですか？",
-      "cta_label": "業務診断を予約"
+      "cta_label": "お問い合わせ"
     },
     {
       "type": "control",
@@ -520,7 +520,7 @@
       ],
       "done_note": "範囲外の作業は、書面での承認後にのみ行います。",
       "cta_text": "最初の業務について Pythera にご相談ください。",
-      "cta_label": "業務診断を予約"
+      "cta_label": "お問い合わせ"
     },
     {
       "type": "engagement",
@@ -639,7 +639,7 @@
       "company_label": "会社名",
       "phone_label": "電話番号",
       "email_label": "メールアドレス",
-      "submit_label": "業務診断を予約",
+      "submit_label": "送信する",
       "done_title": "ありがとうございます",
       "done_text": "Pythera のチームより、日程調整のためご連絡いたします。",
       "endpoint": "",

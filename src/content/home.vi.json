@@ -43,7 +43,7 @@
           "interest": "Camera AI"
         }
       ],
-      "cta_primary_label": "Đặt lịch đánh giá",
+      "cta_primary_label": "Liên hệ",
       "cta_primary_href": "#lien-he",
       "cta_secondary_label": "Xem cách triển khai",
       "cta_secondary_href": "#trien-khai",
@@ -439,7 +439,7 @@
         ]
       },
       "cta_text": "Muốn biết quy trình nào nên đưa AI vào trước?",
-      "cta_label": "Đặt lịch đánh giá"
+      "cta_label": "Liên hệ"
     },
     {
       "type": "control",
@@ -520,7 +520,7 @@
       ],
       "done_note": "Việc ngoài phạm vi chỉ làm khi anh/chị duyệt bằng văn bản.",
       "cta_text": "Trao đổi với Pythera về quy trình đầu tiên.",
-      "cta_label": "Đặt lịch đánh giá"
+      "cta_label": "Liên hệ"
     },
     {
       "type": "engagement",
@@ -639,7 +639,7 @@
       "company_label": "Công ty",
       "phone_label": "Số điện thoại / Zalo",
       "email_label": "Email",
-      "submit_label": "Đặt lịch đánh giá",
+      "submit_label": "Gửi liên hệ",
       "done_title": "Cảm ơn anh/chị",
       "done_text": "Đội Pythera sẽ liên hệ để hẹn lịch trao đổi.",
       "endpoint": "",
