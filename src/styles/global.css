@@ -934,3 +934,6 @@ body{overflow-x:clip}
 :root[data-theme="light"] .consent small{color:#DC2626}
 .consent.err small{display:block}
 .consent.err input{outline:2px solid #F87171;outline-offset:2px}
+
+/* ô bẫy bot: ẩn hẳn để trình duyệt không tự điền */
+.hp{display:none!important}

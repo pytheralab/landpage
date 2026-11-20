@@ -118,11 +118,11 @@
       e.preventDefault(); status.textContent = '';
       var bad = $$('input[name]:not([type=radio]):not([type=hidden]),textarea', lead).filter(function (el) { return el.name !== 'pt_hp' && !check(el); });
       if (bad.length) { bad[0].focus(); return; }
-      // bẫy bot: ô ẩn có chữ, hoặc gửi trong vòng 2 giây sau khi tải trang → giả vờ thành công, không gửi
+      // Không chặn lặng lẽ: lượt nghi là bot vẫn được gửi, chỉ gắn cờ để lọc sau
       var hp = lead.querySelector('[name=pt_hp]');
-      if ((hp && hp.value) || Date.now() - loadedAt < 2000) { finish(); return; }
+      var flag = (hp && hp.value) ? 'hp' : (Date.now() - loadedAt < 2000 ? 'fast' : '');
       var data = {}; new FormData(lead).forEach(function (v, k) { if (k !== 'pt_hp') data[k] = String(v).trim(); });
-      data.source = location.href; data.locale = D.locale; data.consent = !!(lead.consent && lead.consent.checked);
+      data.source = location.href; data.locale = D.locale; if (flag) data.flag = flag; data.consent = !!(lead.consent && lead.consent.checked);
       var endpoint = lead.getAttribute('data-endpoint');
       if (!endpoint) {
         var body = 'Họ tên: ' + data.name + '\nCông ty: ' + data.company + '\nĐiện thoại: ' + data.phone + '\nEmail: ' + (data.email || '-') +
