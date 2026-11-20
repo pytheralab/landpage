@@ -36,6 +36,9 @@ const safeJson = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
   <meta property="og:description" content={site.seo_description}>
   <meta property="og:url" content={url}>
   <meta property="og:image" content={ogImage}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content={site.seo_title}>
   <meta property="og:locale" content={OG_LOCALE[locale]}>
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">

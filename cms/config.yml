@@ -1325,9 +1325,9 @@ collections:
             i18n: true
             required: true
           - name: "og_image"
-            label: "Ảnh khi chia sẻ link"
+            label: "Ảnh khi chia sẻ link (1200×630)"
             widget: "image"
-            i18n: "duplicate"
+            i18n: true
           - name: "site_url"
             label: "Địa chỉ website"
             widget: "string"
