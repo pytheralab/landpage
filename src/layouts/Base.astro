@@ -61,6 +61,7 @@ const safeJson = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
   </main>
   <Footer site={site} />
   <script type="application/json" id="page-data" set:html={safeJson(pageData)}></script>
-  <script is:inline src="/js/main.js"></script>
+  <!-- Astro đóng gói file này với tên có mã băm: mỗi lần sửa JS, trình duyệt và Cloudflare tải bản mới -->
+  <script src="../scripts/main.js"></script>
 </body>
 </html>
