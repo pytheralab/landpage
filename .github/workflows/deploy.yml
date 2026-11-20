@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  pages: write
 concurrency:
   group: deploy-gh-pages
   cancel-in-progress: false
@@ -34,7 +33,3 @@ jobs:
           if git diff --cached --quiet; then echo "Không có thay đổi"; exit 0; fi
           git commit -m "Deploy từ ${GITHUB_SHA::7}"
           git push origin gh-pages
-      - name: Request Pages build
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
