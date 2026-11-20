@@ -1,0 +1,5 @@
+# Cloudflare Pages: trang quản trị không được lập chỉ mục, không cho nhúng iframe
+/*
+  X-Robots-Tag: noindex, nofollow
+  X-Frame-Options: DENY
+  Referrer-Policy: same-origin
