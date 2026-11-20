@@ -3,7 +3,7 @@
 backend:
   name: "github"
   repo: "pytheralab/landpage"
-  branch: "main"
+  branch: "site"
 media_folder: "public/media/uploads"
 public_folder: "/media/uploads"
 i18n:
