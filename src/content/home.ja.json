@@ -643,7 +643,7 @@
       "submit_label": "送信する",
       "done_title": "ありがとうございます",
       "done_text": "Pythera のチームより、日程調整のためご連絡いたします。",
-      "endpoint": "",
+      "endpoint": "https://script.google.com/macros/s/AKfycbxEd5Kn39hpBr07ZvLbQTyR6UMwNI9H8XXcWxxR2mSaUJEdV1TLMDLHqDdNskSi2aX28A/exec",
       "err_name": "氏名を入力してください",
       "err_company": "会社名を入力してください",
       "err_phone": "電話番号を入力してください",

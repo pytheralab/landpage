@@ -643,7 +643,7 @@
       "submit_label": "Send",
       "done_title": "Thank you",
       "done_text": "The Pythera team will contact you to schedule a call.",
-      "endpoint": "",
+      "endpoint": "https://script.google.com/macros/s/AKfycbxEd5Kn39hpBr07ZvLbQTyR6UMwNI9H8XXcWxxR2mSaUJEdV1TLMDLHqDdNskSi2aX28A/exec",
       "err_name": "Please enter your name",
       "err_company": "Please enter your company",
       "err_phone": "Please leave a phone number",
