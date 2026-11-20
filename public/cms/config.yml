@@ -1,5 +1,5 @@
 # Cấu hình Sveltia CMS cho www.pythera.ai — sinh tự động, sửa trong build_cms_config.py nếu đổi cấu trúc.
-# Bước 3 (đăng nhập GitHub qua Cloudflare Worker): thêm base_url vào backend.
+# Đăng nhập: dùng "Sign In Using Access Token" (token GitHub chỉ cấp quyền repo landpage). Muốn bật "Sign In with GitHub" thì dựng Worker xác thực rồi thêm base_url vào backend.
 backend:
   name: "github"
   repo: "pytheralab/landpage"
