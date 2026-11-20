@@ -131,8 +131,8 @@
       // Google Apps Script: gửi dạng text/plain để tránh yêu cầu CORS preflight mà Apps Script không hỗ trợ
       var gas = /script\.google\.com/.test(endpoint);
       fetch(endpoint, { method: 'POST', headers: gas ? { 'Content-Type': 'text/plain;charset=utf-8' } : { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
-        .then(function (r) { if (!r.ok) throw 0; return r.json().catch(function () { return { ok: true }; }); })
-        .then(function (j) { if (!j || j.ok === false) throw 0; finish(); })
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (j) { if (!j || j.ok !== true) throw 0; finish(); })
         .catch(function () { status.innerHTML = F.send_failed; })
         .then(function () { btn.disabled = false; btn.firstChild.textContent = F.submit_label; });
     });
