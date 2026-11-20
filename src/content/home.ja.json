@@ -639,6 +639,7 @@
       "company_label": "会社名",
       "phone_label": "電話番号",
       "email_label": "メールアドレス",
+      "consent_label": "<a href=\"/privacy.html\">プライバシーポリシー</a>に基づき、Pythera がこの情報を使って連絡することに同意します。",
       "submit_label": "送信する",
       "done_title": "ありがとうございます",
       "done_text": "Pythera のチームより、日程調整のためご連絡いたします。",
@@ -648,6 +649,7 @@
       "err_phone": "電話番号を入力してください",
       "err_phone_invalid": "電話番号をご確認ください",
       "err_email": "メールアドレスの形式をご確認ください",
+      "err_consent": "ご連絡のため、同意にチェックしてください",
       "sending_label": "送信中",
       "mailto_opened": "メールアプリが開き、内容が入力されています。送信して完了してください。",
       "send_failed": "送信できませんでした。もう一度お試しいただくか、<a href=\"mailto:contact@pythera.ai\">contact@pythera.ai</a> までご連絡ください。"

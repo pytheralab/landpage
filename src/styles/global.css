@@ -925,3 +925,12 @@ body{overflow-x:clip}
 .site-footer a{color:inherit;text-decoration:none}
 .site-footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+
+/* ô đồng ý chính sách trong form liên hệ */
+.consent{display:grid;grid-template-columns:20px 1fr;gap:4px 10px;align-items:start;font-size:.88rem;line-height:1.5;color:var(--soft);cursor:pointer}
+.consent input{width:18px;height:18px;margin:2px 0 0;accent-color:#00B8A7;cursor:pointer}
+.consent a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.consent small{grid-column:2;display:none;font-size:.78rem;color:#FCA5A5}
+:root[data-theme="light"] .consent small{color:#DC2626}
+.consent.err small{display:block}
+.consent.err input{outline:2px solid #F87171;outline-offset:2px}

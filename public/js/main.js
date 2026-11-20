@@ -96,6 +96,11 @@
       phone: function (v) { return !v ? F.err_phone : (/^[+()\d\s.-]{8,20}$/.test(v) ? '' : F.err_phone_invalid); }
     };
     function check(el) {
+      if (el.name === 'consent') {
+        var cf = el.closest('.consent'), ok = el.checked;
+        cf.classList.toggle('err', !ok); cf.querySelector('small').textContent = ok ? '' : (F.err_consent || '');
+        return ok;
+      }
       var r = rules[el.name]; if (!r) return true;
       var msg = r(el.value.trim()) || '', f = el.closest('.fld');
       f.classList.remove('err'); void f.offsetWidth; if (msg) f.classList.add('err');
@@ -105,15 +110,16 @@
     $$('input,textarea', lead).forEach(function (el) {
       el.addEventListener('blur', function () { if (el.value) check(el); });
       el.addEventListener('input', function () { var f = el.closest('.fld'); if (f && f.classList.contains('err')) check(el); });
+      if (el.name === 'consent') el.addEventListener('change', function () { check(el); });
     });
     function finish(msg) { if (msg) document.getElementById('leadDoneMsg').textContent = msg; lead.hidden = true; done.hidden = false; }
     lead.addEventListener('submit', function (e) {
       e.preventDefault(); status.textContent = '';
-      var bad = $$('input[name]:not([type=radio]),textarea', lead).filter(function (el) { return el.name !== 'website' && !check(el); });
+      var bad = $$('input[name]:not([type=radio]):not([type=hidden]),textarea', lead).filter(function (el) { return el.name !== 'website' && !check(el); });
       if (bad.length) { bad[0].focus(); return; }
       if (lead.website.value) return; // bot
       var data = {}; new FormData(lead).forEach(function (v, k) { if (k !== 'website') data[k] = String(v).trim(); });
-      data.source = location.href; data.locale = D.locale;
+      data.source = location.href; data.locale = D.locale; data.consent = !!(lead.consent && lead.consent.checked);
       var endpoint = lead.getAttribute('data-endpoint');
       if (!endpoint) {
         var body = 'Họ tên: ' + data.name + '\nCông ty: ' + data.company + '\nĐiện thoại: ' + data.phone + '\nEmail: ' + (data.email || '-') +
@@ -122,8 +128,11 @@
         finish(F.mailto_opened); return;
       }
       btn.disabled = true; btn.firstChild.textContent = F.sending_label;
-      fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
-        .then(function (r) { if (!r.ok) throw 0; finish(); })
+      // Google Apps Script: gửi dạng text/plain để tránh yêu cầu CORS preflight mà Apps Script không hỗ trợ
+      var gas = /script\.google\.com/.test(endpoint);
+      fetch(endpoint, { method: 'POST', headers: gas ? { 'Content-Type': 'text/plain;charset=utf-8' } : { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+        .then(function (r) { if (!r.ok) throw 0; return r.json().catch(function () { return { ok: true }; }); })
+        .then(function (j) { if (!j || j.ok === false) throw 0; finish(); })
         .catch(function () { status.innerHTML = F.send_failed; })
         .then(function () { btn.disabled = false; btn.firstChild.textContent = F.submit_label; });
     });

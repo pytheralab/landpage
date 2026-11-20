@@ -20,6 +20,7 @@ const { s } = Astro.props;
           <label class="fld"><span>{s.phone_label}</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required><small></small></label>
           <label class="fld"><span>{s.email_label}</span><input name="email" type="email" autocomplete="email" inputmode="email"><small></small></label>
         </div>
+        <label class="consent"><input type="checkbox" name="consent" required><span set:html={s.consent_label}></span><small></small></label>
         <input type="hidden" name="estimate" id="leadEstimate">
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn btn-primary lead-btn" type="submit"><span>{s.submit_label}</span><i aria-hidden="true"></i></button>

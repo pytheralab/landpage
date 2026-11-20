@@ -1233,6 +1233,12 @@ collections:
                     widget: "string"
                     i18n: true
                     required: true
+                  - name: "consent_label"
+                    label: "Câu đồng ý chính sách"
+                    widget: "text"
+                    i18n: true
+                    required: true
+                    hint: "Được phép dùng thẻ <a> để gắn link Chính sách bảo mật"
                   - name: "submit_label"
                     label: "Nút gửi"
                     widget: "string"
@@ -1276,6 +1282,11 @@ collections:
                     required: true
                   - name: "err_email"
                     label: "Lỗi: email sai"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "err_consent"
+                    label: "Lỗi: chưa tick đồng ý"
                     widget: "string"
                     i18n: true
                     required: true

@@ -639,6 +639,7 @@
       "company_label": "Company",
       "phone_label": "Phone",
       "email_label": "Email",
+      "consent_label": "I agree that Pythera may use this information to contact me, as described in the <a href=\"/privacy.html\">Privacy policy</a>.",
       "submit_label": "Send",
       "done_title": "Thank you",
       "done_text": "The Pythera team will contact you to schedule a call.",
@@ -648,6 +649,7 @@
       "err_phone": "Please leave a phone number",
       "err_phone_invalid": "Please check the phone number",
       "err_email": "Please check the email format",
+      "err_consent": "Please agree so we can contact you",
       "sending_label": "Sending",
       "mailto_opened": "Your email app has opened with a pre-filled message. Press send to finish.",
       "send_failed": "Couldn't send. Please try again or email <a href=\"mailto:contact@pythera.ai\">contact@pythera.ai</a>."

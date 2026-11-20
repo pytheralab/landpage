@@ -639,6 +639,7 @@
       "company_label": "Công ty",
       "phone_label": "Số điện thoại / Zalo",
       "email_label": "Email",
+      "consent_label": "Tôi đồng ý để Pythera dùng thông tin này để liên hệ tư vấn, theo <a href=\"/privacy.html\">Chính sách bảo mật</a>.",
       "submit_label": "Gửi liên hệ",
       "done_title": "Cảm ơn anh/chị",
       "done_text": "Đội Pythera sẽ liên hệ để hẹn lịch trao đổi.",
@@ -648,6 +649,7 @@
       "err_phone": "Vui lòng để lại số điện thoại",
       "err_phone_invalid": "Số điện thoại chưa đúng",
       "err_email": "Email chưa đúng định dạng",
+      "err_consent": "Vui lòng đồng ý để Pythera liên hệ",
       "sending_label": "Đang gửi",
       "mailto_opened": "Ứng dụng email của bạn đã mở với nội dung soạn sẵn. Bấm gửi để hoàn tất.",
       "send_failed": "Chưa gửi được. Vui lòng thử lại hoặc email <a href=\"mailto:contact@pythera.ai\">contact@pythera.ai</a>."
