@@ -1,0 +1,53 @@
+{
+  "brand_name": "Pythera",
+  "brand_tagline": "AI solutions",
+  "seo_title": "Pythera · Giải pháp AI cho doanh nghiệp, bệnh viện và nhà máy",
+  "seo_description": "Pythera triển khai AI cho quản trị doanh nghiệp, tài chính, y tế, camera và trung tâm dữ liệu: khảo sát, triển khai và hỗ trợ đến khi hệ thống chạy ổn định.",
+  "og_image": "/og-image.png",
+  "site_url": "https://www.pythera.ai",
+  "default_theme": "light",
+  "nav_aria": "Điều hướng chính",
+  "lang_aria": "Ngôn ngữ",
+  "theme_aria": "Đổi giao diện sáng tối",
+  "nav": [
+    {
+      "label": "Lĩnh vực",
+      "href": "#linh-vuc"
+    },
+    {
+      "label": "Vấn đề",
+      "href": "#van-de"
+    },
+    {
+      "label": "Chi phí ẩn",
+      "href": "#chi-phi"
+    },
+    {
+      "label": "Triển khai",
+      "href": "#trien-khai"
+    },
+    {
+      "label": "Hỏi đáp",
+      "href": "#hoi-dap"
+    }
+  ],
+  "header_cta_label": "Đặt lịch đánh giá",
+  "header_cta_href": "#lien-he",
+  "company_name": "Pythera AI",
+  "contact_email": "contact@pythera.ai",
+  "phone": "",
+  "address": "",
+  "tax_code": "",
+  "footer_copyright": "© {year} Pythera AI",
+  "footer_note": "PyNote by Pythera",
+  "footer_links": [
+    {
+      "label": "Chính sách bảo mật",
+      "href": "/privacy.html"
+    },
+    {
+      "label": "Điều khoản sử dụng",
+      "href": "/terms.html"
+    }
+  ]
+}

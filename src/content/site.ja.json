@@ -1,0 +1,53 @@
+{
+  "brand_name": "Pythera",
+  "brand_tagline": "AIソリューション",
+  "seo_title": "Pythera · 企業・病院・工場のためのAIソリューション",
+  "seo_description": "Pythera は経営管理、財務、医療、カメラ、データセンター向けにAIを導入します。調査から導入、安定稼働までを支援します。",
+  "og_image": "/og-image.png",
+  "site_url": "https://www.pythera.ai",
+  "default_theme": "light",
+  "nav_aria": "メインナビゲーション",
+  "lang_aria": "言語",
+  "theme_aria": "ライト・ダーク表示を切り替え",
+  "nav": [
+    {
+      "label": "事業領域",
+      "href": "#linh-vuc"
+    },
+    {
+      "label": "課題",
+      "href": "#van-de"
+    },
+    {
+      "label": "隠れコスト",
+      "href": "#chi-phi"
+    },
+    {
+      "label": "導入",
+      "href": "#trien-khai"
+    },
+    {
+      "label": "よくある質問",
+      "href": "#hoi-dap"
+    }
+  ],
+  "header_cta_label": "業務診断を予約",
+  "header_cta_href": "#lien-he",
+  "company_name": "Pythera AI",
+  "contact_email": "contact@pythera.ai",
+  "phone": "",
+  "address": "",
+  "tax_code": "",
+  "footer_copyright": "© {year} Pythera AI",
+  "footer_note": "PyNote by Pythera",
+  "footer_links": [
+    {
+      "label": "プライバシーポリシー",
+      "href": "/privacy.html"
+    },
+    {
+      "label": "利用規約",
+      "href": "/terms.html"
+    }
+  ]
+}

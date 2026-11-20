@@ -1,0 +1,13 @@
+---
+const { site } = Astro.props;
+const year = new Date().getFullYear();
+const info = [site.company_name, site.address, site.tax_code, site.phone, site.contact_email].filter(Boolean);
+---
+<footer class="wrap site-footer">
+  <span>{site.footer_copyright.replace('{year}', String(year))}</span>
+  {info.length > 1 && <span class="footer-info">{info.slice(1).join(' · ')}</span>}
+  <span class="footer-links">
+    {site.footer_links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <span>{site.footer_note}</span>
+  </span>
+</footer>

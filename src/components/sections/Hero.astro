@@ -1,0 +1,40 @@
+---
+import { illustration } from '../../lib/content.js';
+const { s } = Astro.props;
+const first = s.audiences[0];
+---
+<section class="hero">
+  <div class="hero-copy">
+    <div class="aud" role="tablist" aria-label={s.audience_aria}>
+      <span class="aud-l">{s.audience_label}</span>
+      {s.audiences.map((a, i) => <button type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-aud={a.key}>{a.label}</button>)}
+    </div>
+    <h1 id="heroH">{first.title}</h1>
+    <p class="lead" id="heroL">{first.lead}</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href={s.cta_primary_href}>{s.cta_primary_label}</a>
+      <a class="btn btn-ghost" href={s.cta_secondary_href}>{s.cta_secondary_label}</a>
+    </div>
+  </div>
+  {s.audiences.map((a, i) => a.visual === 'ba' ? (
+    <div class="hero-vis ba" data-aud={a.key} hidden={i !== 0} aria-label={s.ba.aria}>
+      <div class="ba-top">
+        <div class="seg" role="tablist" aria-label={s.ba.tabs_aria}>
+          {s.ba.tabs.map((t, k) => <button type="button" role="tab" aria-selected={k === 0 ? 'true' : 'false'} data-k={k}>{t.label}</button>)}
+        </div>
+      </div>
+      <div class="ba-body">
+        <div class="ba-head">
+          <span class="ba-state" id="baState">{s.ba.state_before}</span>
+          <label class="sw"><span>{s.ba.switch_label}</span><input type="checkbox" id="baSw" role="switch"><i aria-hidden="true"></i></label>
+        </div>
+        <ol class="ba-list" id="baList"></ol>
+        <div class="ba-out" id="baOut"></div>
+      </div>
+    </div>
+  ) : (
+    <div class="hero-vis" data-aud={a.key} hidden={i !== 0}>
+      <figure class="hero-ill ill" set:html={illustration(a.visual, '-h' + i)}></figure>
+    </div>
+  ))}
+</section>

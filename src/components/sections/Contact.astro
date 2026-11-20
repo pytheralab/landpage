@@ -1,0 +1,35 @@
+---
+const { s } = Astro.props;
+---
+<section class:list={['section', { alt: s.background === 'alt' }]} id={s.anchor}>
+  <div class="contact">
+    <div>
+      <h2>{s.title}</h2>
+      <p>{s.text}</p>
+      <ul class="assure">{s.assurances.map((a) => <li><b>{a.title}</b><span>{a.text}</span></li>)}</ul>
+    </div>
+    <div class="lead-wrap">
+      <form class="lead" id="lead" novalidate data-endpoint={s.endpoint || ''}>
+        <div class="lead-head"><b>{s.form_heading}</b></div>
+        <div class="chips" role="radiogroup" aria-label={s.interests_aria}>
+          {s.interests.map((v) => <label><input type="radio" name="need" value={v}><span>{v}</span></label>)}
+        </div>
+        <div class="lead-grid">
+          <label class="fld"><span>{s.name_label}</span><input name="name" autocomplete="name" required><small></small></label>
+          <label class="fld"><span>{s.company_label}</span><input name="company" autocomplete="organization" required><small></small></label>
+          <label class="fld"><span>{s.phone_label}</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required><small></small></label>
+          <label class="fld"><span>{s.email_label}</span><input name="email" type="email" autocomplete="email" inputmode="email"><small></small></label>
+        </div>
+        <input type="hidden" name="estimate" id="leadEstimate">
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-primary lead-btn" type="submit"><span>{s.submit_label}</span><i aria-hidden="true"></i></button>
+        <p class="lead-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="lead-done" hidden>
+        <svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+        <b>{s.done_title}</b>
+        <p id="leadDoneMsg">{s.done_text}</p>
+      </div>
+    </div>
+  </div>
+</section>

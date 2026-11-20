@@ -1,0 +1,656 @@
+{
+  "sections": [
+    {
+      "type": "hero",
+      "background": "default",
+      "audience_label": "Anh/chị đang điều hành",
+      "audience_aria": "Loại hình đơn vị",
+      "audiences": [
+        {
+          "key": "dn",
+          "label": "Doanh nghiệp",
+          "title": "Báo cáo nhiều ngày làm tay, nay còn vài phút.",
+          "lead": "Hỏi bằng tiếng Việt, PyNote lấy số từ Excel, phần mềm kế toán và hệ thống nội bộ, đối chiếu với dữ liệu gốc rồi lập báo cáo.",
+          "visual": "ba",
+          "sectors": [
+            "quan-tri",
+            "tai-chinh",
+            "chatbot"
+          ],
+          "interest": "Quản trị doanh nghiệp"
+        },
+        {
+          "key": "bv",
+          "label": "Bệnh viện, phòng khám",
+          "title": "Bác sĩ đọc phim nhanh hơn, quyết định vẫn thuộc về bác sĩ.",
+          "lead": "Clara gợi ý đọc X-quang và ECG, chạy tại chỗ không cần Internet, dữ liệu bệnh nhân không rời khỏi bệnh viện.",
+          "visual": "y-te",
+          "sectors": [
+            "y-te"
+          ],
+          "interest": "Y tế"
+        },
+        {
+          "key": "nm",
+          "label": "Nhà máy, tòa nhà",
+          "title": "Camera sẵn có thành hệ thống cảnh báo.",
+          "lead": "Phát hiện té ngã, ẩu đả và hành động bất thường ngay khi xảy ra. Hình ảnh giữ trong mạng nội bộ.",
+          "visual": "camera",
+          "sectors": [
+            "camera",
+            "aidc"
+          ],
+          "interest": "Camera AI"
+        }
+      ],
+      "cta_primary_label": "Đặt lịch đánh giá",
+      "cta_primary_href": "#lien-he",
+      "cta_secondary_label": "Xem cách triển khai",
+      "cta_secondary_href": "#trien-khai",
+      "ba": {
+        "aria": "Quy trình trước và sau khi có Pythera",
+        "tabs_aria": "Chọn quy trình",
+        "state_before": "Hôm nay",
+        "state_after": "Có Pythera",
+        "switch_label": "Pythera",
+        "tabs": [
+          {
+            "label": "Báo cáo",
+            "before": [
+              "Gom số từ Excel, kế toán, CRM",
+              "Ghép bảng bằng tay",
+              "Cuối tuần gửi email",
+              "Bị hỏi lại số, phải làm lại"
+            ],
+            "before_out": "Thứ Hai mới có số tuần trước",
+            "after": [
+              "8 giờ sáng thứ Hai tự chạy",
+              "Lấy số từ đúng nguồn",
+              "So với tuần trước, xuất Excel",
+              "Gửi email và nhóm chat"
+            ],
+            "after_badge": "Chờ duyệt",
+            "after_out": "2 kênh thấp hơn kế hoạch"
+          },
+          {
+            "label": "Tồn kho",
+            "before": [
+              "Xuất số tồn từ phần mềm kho",
+              "Tự tính điểm đặt hàng",
+              "Đối chiếu đơn đang về",
+              "Thiếu hàng mới biết"
+            ],
+            "before_out": "Mỗi người tính một kiểu",
+            "after": [
+              "Tự kiểm tồn kho theo lịch",
+              "Tính mức tồn an toàn, điểm đặt hàng",
+              "Báo trước mã sắp hết",
+              "Gửi đề xuất cho người phụ trách"
+            ],
+            "after_badge": "Chờ duyệt",
+            "after_out": "đề xuất đặt hàng"
+          },
+          {
+            "label": "Hợp đồng",
+            "before": [
+              "Tìm mẫu cũ trong thư mục",
+              "Sửa tay từng điều khoản",
+              "Chờ người có kinh nghiệm xem lại",
+              "Mỗi bản trình bày một kiểu"
+            ],
+            "before_out": "Phụ thuộc vài người",
+            "after": [
+              "Soạn từ mẫu đã duyệt",
+              "Đối chiếu quy định nội bộ",
+              "Lưu lại mọi lần sửa",
+              "Người duyệt xem trước khi gửi"
+            ],
+            "after_badge": "Chờ duyệt",
+            "after_out": "bản hợp đồng"
+          }
+        ]
+      }
+    },
+    {
+      "type": "sectors",
+      "anchor": "linh-vuc",
+      "background": "default",
+      "label": "Lĩnh vực",
+      "title": "Các lĩnh vực Pythera đang triển khai",
+      "intro": "Mỗi lĩnh vực có cách triển khai riêng, dùng chung mô hình AI và phần mềm PyNote của Pythera.",
+      "cta_label": "Trao đổi",
+      "items": [
+        {
+          "key": "y-te",
+          "title": "Y tế",
+          "tagline": "Đọc ảnh nhanh hơn, quản trị năng lực rõ hơn.",
+          "points": [
+            "Clara gợi ý đọc X-quang, phân tích ECG, bác sĩ quyết định",
+            "Đánh giá năng lực đội ngũ theo từng vị trí",
+            "Chạy tại chỗ, không cần Internet"
+          ],
+          "audience": "Bệnh viện, phòng khám",
+          "illustration": "y-te",
+          "interest": "Y tế"
+        },
+        {
+          "key": "quan-tri",
+          "title": "Quản trị doanh nghiệp",
+          "tagline": "Từ dữ liệu rời rạc đến quyết định.",
+          "points": [
+            "Hỏi “vì sao lệch kế hoạch” ngay trên dữ liệu hệ thống",
+            "Chỉ số và thuật ngữ được định nghĩa thống nhất trước khi tính",
+            "Kết nối Excel, Google Drive và phần mềm đang dùng"
+          ],
+          "audience": "Doanh nghiệp, ban lãnh đạo",
+          "illustration": "quan-tri",
+          "interest": "Quản trị doanh nghiệp"
+        },
+        {
+          "key": "tai-chinh",
+          "title": "Phân tích tài chính",
+          "tagline": "Báo cáo tài chính trong vài phút.",
+          "points": [
+            "Trích xuất hệ số và xu hướng từ báo cáo tài chính",
+            "Phân rã chênh lệch thực tế so với kế hoạch",
+            "Bắt đầu từ file Excel, sau đó nối thẳng phần mềm kế toán"
+          ],
+          "audience": "Phòng tài chính, CFO",
+          "illustration": "tai-chinh",
+          "interest": "Phân tích tài chính"
+        },
+        {
+          "key": "camera",
+          "title": "Camera AI",
+          "tagline": "Camera sẵn có thành hệ thống cảnh báo.",
+          "points": [
+            "Phát hiện và nhận dạng lại người qua nhiều camera",
+            "Cảnh báo té ngã, ẩu đả và hành động bất thường",
+            "Hình ảnh giữ trong mạng nội bộ"
+          ],
+          "audience": "Tòa nhà, nhà máy, trường học",
+          "illustration": "camera",
+          "interest": "Camera AI"
+        },
+        {
+          "key": "aidc",
+          "title": "AI Data Center",
+          "tagline": "Tư vấn hạ tầng và vận hành cho tải AI.",
+          "points": [
+            "Tư vấn công suất, cụm GPU, mạng và làm mát",
+            "Cảnh báo sớm bất thường về tải, nhiệt độ, điện năng",
+            "Báo cáo hiệu suất, chi phí điện và mức cam kết dịch vụ"
+          ],
+          "audience": "Chủ đầu tư, đơn vị vận hành",
+          "illustration": "aidc",
+          "interest": "AI Data Center"
+        },
+        {
+          "key": "chatbot",
+          "title": "Chatbot chăm sóc khách hàng",
+          "tagline": "Trả lời khách hàng từ kho kiến thức doanh nghiệp.",
+          "points": [
+            "Hỗ trợ khách hàng và bán hàng",
+            "Câu trả lời lấy từ tài liệu của chính doanh nghiệp",
+            "Đa ngôn ngữ"
+          ],
+          "audience": "Chăm sóc khách hàng, bán hàng",
+          "illustration": "chatbot",
+          "interest": "Chatbot chăm sóc khách hàng"
+        }
+      ],
+      "core_label": "Nền tảng chung",
+      "core_items": [
+        "PyNote",
+        "Clara",
+        "Vision",
+        "LLM",
+        "DPR"
+      ]
+    },
+    {
+      "type": "partners",
+      "anchor": "doi-tac",
+      "background": "alt",
+      "aria": "Đối tác",
+      "label": "Khách hàng và đối tác",
+      "title": "Đã đồng hành cùng doanh nghiệp, bệnh viện và trường đại học",
+      "logos": [
+        {
+          "name": "T&A Ogilvy",
+          "image": "/media/partners/ta-ogilvy.png"
+        },
+        {
+          "name": "MobiFone",
+          "image": "/media/partners/mobifone.png"
+        },
+        {
+          "name": "Merck",
+          "image": "/media/partners/merck.png"
+        },
+        {
+          "name": "Trường ĐH Công nghệ Thông tin (UIT)",
+          "image": "/media/partners/uit.png"
+        },
+        {
+          "name": "Trường ĐH Mở TP.HCM",
+          "image": "/media/partners/dh-mo-tphcm.png"
+        },
+        {
+          "name": "FPT University",
+          "image": "/media/partners/fpt-university.png"
+        },
+        {
+          "name": "Ecovillage Saigon River",
+          "image": "/media/partners/ecovillage.png"
+        },
+        {
+          "name": "Sotrans",
+          "image": "/media/partners/sotrans.png"
+        },
+        {
+          "name": "Bệnh viện Quân y 175",
+          "image": "/media/partners/benh-vien-175.png"
+        }
+      ]
+    },
+    {
+      "type": "problems",
+      "anchor": "van-de",
+      "background": "default",
+      "label": "Vấn đề",
+      "title": "Nhân viên dùng AI mỗi ngày, nhưng công ty khó đo được hiệu quả",
+      "intro": "Mỗi người dùng một công cụ khác nhau. Chi phí cộng dồn theo từng người và không ai tổng hợp được kết quả.",
+      "pains": [
+        {
+          "title": "Không thống nhất",
+          "text": "Mỗi người một công cụ, một cách dùng. Chưa có quy củ chung về việc gì nên giao cho AI."
+        },
+        {
+          "title": "Rò rỉ dữ liệu, rủi ro pháp lý",
+          "text": "Dữ liệu khách hàng bị dán vào dịch vụ bên ngoài. Theo Luật Bảo vệ dữ liệu cá nhân 2025, doanh nghiệp phải chịu trách nhiệm về dữ liệu này."
+        },
+        {
+          "title": "Chi phí không đo được",
+          "text": "Phí đăng ký và phí sử dụng AI cộng dồn theo từng người, hiệu quả thì không ai biết."
+        }
+      ],
+      "col_quote": "Anh/chị có từng nghe",
+      "col_now": "Hôm nay",
+      "col_new": "Với Pythera",
+      "rows": [
+        {
+          "quote": "“Hỏi ba người ra ba con số.”",
+          "now": "Dữ liệu phân mảnh ở nhiều hệ thống, không ai có bức tranh chung.",
+          "new": "AI đọc cùng một nguồn dữ liệu đã thống nhất, kết nối thẳng với hệ thống của công ty."
+        },
+        {
+          "quote": "“Nhân viên giỏi mà cả ngày làm Excel.”",
+          "now": "Việc lặp lại chiếm thời gian của người có chuyên môn.",
+          "new": "Việc lặp được đóng gói thành kỹ năng dùng lại, người giỏi quay về việc cần phán đoán."
+        },
+        {
+          "quote": "“Người đó nghỉ là cả quy trình mất theo.”",
+          "now": "Cách làm nằm trong đầu một vài người, khó chuyển giao.",
+          "new": "Tài liệu và chỉ dẫn lưu trong dự án dùng chung, ai làm cũng theo cùng một chuẩn."
+        }
+      ]
+    },
+    {
+      "type": "calculator",
+      "anchor": "chi-phi",
+      "background": "alt",
+      "label": "Chi phí ẩn",
+      "title": "Việc làm tay đang tốn của công ty bao nhiêu?",
+      "intro": "Kéo thanh trượt theo số liệu thực tế của công ty.",
+      "people_label": "Số người làm báo cáo, đối chiếu, nhập liệu",
+      "hours_label": "Số giờ mỗi người dành cho việc đó mỗi tuần",
+      "rate_label": "Chi phí một giờ công",
+      "auto_label": "Phần việc có thể tự động hoá",
+      "default_people": 10,
+      "default_hours": 8,
+      "default_rate": 100,
+      "default_auto": 50,
+      "result_lead": "Mỗi năm công ty đang dành",
+      "result_unit": "giờ cho việc lặp lại",
+      "days_label": "ngày công",
+      "money_label": "triệu đồng",
+      "gain_label": "Có thể lấy lại mỗi năm",
+      "cta_label": "Xem việc nào nên giao cho AI trước",
+      "cta_href": "#lien-he",
+      "fmt_people": "{n} người",
+      "fmt_hours": "{n} giờ",
+      "fmt_rate": "{n} đ",
+      "fmt_gain": "{h} giờ · {m} triệu đồng",
+      "fmt_formula": "{p} người × {h} giờ × 48 tuần làm việc",
+      "thousands_sep": "."
+    },
+    {
+      "type": "solution",
+      "anchor": "giai-phap",
+      "background": "default",
+      "label": "Giải pháp",
+      "title": "Phần mềm có sẵn, đội ngũ làm cùng doanh nghiệp",
+      "intro": "PyNote là phần mềm dùng chung. Đội triển khai của Pythera tìm hiểu nghiệp vụ, cấu hình và kết nối hệ thống cho từng doanh nghiệp.",
+      "columns": [
+        {
+          "label": "Nền tảng",
+          "title": "PyNote",
+          "highlight": true,
+          "points": [
+            {
+              "title": "Cả công ty dùng chung một chuẩn",
+              "text": "Kỹ năng và quy trình AI cài một lần, mọi người cùng dùng."
+            },
+            {
+              "title": "Báo cáo tự chạy theo lịch",
+              "text": "Gửi kết quả qua email, Slack, Teams hoặc Telegram."
+            },
+            {
+              "title": "Biết ai dùng, dùng bao nhiêu",
+              "text": "Thành viên, hạn mức và nhật ký trên một trang quản trị."
+            }
+          ]
+        },
+        {
+          "label": "Đội triển khai",
+          "title": "Kỹ sư triển khai",
+          "highlight": false,
+          "points": [
+            {
+              "title": "Làm theo đúng nghiệp vụ",
+              "text": "Khảo sát và phân tích bài toán ngay tại môi trường của doanh nghiệp."
+            },
+            {
+              "title": "Kết nối hệ thống sẵn có",
+              "text": "Kết nối dữ liệu và hệ thống liên quan theo phạm vi đã chốt."
+            },
+            {
+              "title": "Theo đến khi chạy thật",
+              "text": "Kiểm thử, đào tạo người dùng, bàn giao và hỗ trợ vận hành."
+            }
+          ]
+        }
+      ],
+      "show_mocks": true,
+      "mocks_aria": "Giao diện phần mềm",
+      "mock_skills": {
+        "label": "Kỹ năng",
+        "caption": "Cài một lần, cả tổ chức dùng chung.",
+        "items": [
+          {
+            "name": "bao-cao-kinh-doanh",
+            "pill": "Chung",
+            "shared": true,
+            "text": "Dựng báo cáo theo khung KPI của doanh nghiệp."
+          },
+          {
+            "name": "kiem-soat-ton-kho",
+            "pill": "Chung",
+            "shared": true,
+            "text": "Tính tồn kho an toàn và điểm đặt hàng."
+          },
+          {
+            "name": "soan-thao-hop-dong",
+            "pill": "Cá nhân",
+            "shared": false,
+            "text": "Soạn hợp đồng theo mẫu đã duyệt."
+          }
+        ]
+      },
+      "mock_schedule": {
+        "label": "Việc định kỳ",
+        "caption": "Báo cáo tự chạy theo lịch, tự gửi đến đúng người.",
+        "title": "Tổng hợp doanh thu tuần",
+        "text": "Theo kênh, so với tuần trước nữa, xuất Excel.",
+        "days": [
+          "T2",
+          "T3",
+          "T4",
+          "T5",
+          "T6",
+          "T7",
+          "CN"
+        ],
+        "active_day": 1,
+        "time_title": "08:00 sáng, hằng tuần",
+        "time_text": "Gửi: thông báo trong PyNote, email, nhóm chat"
+      },
+      "mock_admin": {
+        "label": "Quản trị",
+        "caption": "Biết ai dùng, dùng bao nhiêu, kết quả ra sao.",
+        "stats": [
+          {
+            "label": "Thành viên hoạt động",
+            "value": "13 / 31"
+          },
+          {
+            "label": "Tin nhắn trong tháng",
+            "value": "1.105"
+          },
+          {
+            "label": "Token đã dùng",
+            "value": "133 triệu"
+          },
+          {
+            "label": "Yêu cầu lỗi",
+            "value": "28"
+          }
+        ]
+      },
+      "cta_text": "Muốn biết quy trình nào nên đưa AI vào trước?",
+      "cta_label": "Đặt lịch đánh giá"
+    },
+    {
+      "type": "control",
+      "anchor": "kiem-soat",
+      "background": "alt",
+      "label": "Kiểm soát và an toàn",
+      "title": "Doanh nghiệp vẫn nắm quyền kiểm soát",
+      "cards": [
+        {
+          "label": "Phân quyền",
+          "title": "Đúng người, đúng dữ liệu",
+          "text": "Quản lý thành viên và phạm vi truy cập theo từng vai trò."
+        },
+        {
+          "label": "Hạn mức",
+          "title": "Chi phí trong tầm tay",
+          "text": "Đặt hạn mức sử dụng và được cảnh báo trước khi chạm ngưỡng."
+        },
+        {
+          "label": "Nhật ký",
+          "title": "Mọi thao tác đều có dấu vết",
+          "text": "Nhật ký quản trị và báo cáo sử dụng giúp truy xuất khi cần."
+        },
+        {
+          "label": "Người duyệt",
+          "title": "Điểm dừng ở bước quan trọng",
+          "text": "Kết quả quan trọng đi qua người duyệt trước khi chuyển sang hệ thống khác."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "anchor": "trien-khai",
+      "background": "default",
+      "label": "Triển khai",
+      "title": "Triển khai theo năm bước",
+      "intro": "Mỗi bước có kết quả cụ thể để anh/chị kiểm tra trước khi đi tiếp.",
+      "steps": [
+        {
+          "n": "Mốc 1",
+          "title": "Khảo sát",
+          "text": "Làm rõ bài toán, người dùng, dữ liệu và hệ thống liên quan.",
+          "output": "Đầu ra: phạm vi công việc"
+        },
+        {
+          "n": "Mốc 2",
+          "title": "Thiết kế",
+          "text": "Chốt việc cần làm, luồng xử lý, tích hợp và tiêu chí chất lượng.",
+          "output": "Đầu ra: bản thiết kế được duyệt"
+        },
+        {
+          "n": "Mốc 3",
+          "title": "Chạy thử",
+          "text": "Người dùng thật dùng thử, đo chất lượng AI theo bộ kiểm thử.",
+          "output": "Đầu ra: kết quả kiểm thử"
+        },
+        {
+          "n": "Mốc 4",
+          "title": "Vận hành",
+          "text": "Đưa vào môi trường thật, đào tạo người dùng và hỗ trợ sát sao.",
+          "output": "Đầu ra: hệ thống chạy thật"
+        },
+        {
+          "n": "Mốc 5",
+          "title": "Nghiệm thu",
+          "text": "Đối chiếu với điều kiện đã thống nhất và bàn giao.",
+          "output": "Đầu ra: biên bản nghiệm thu"
+        }
+      ],
+      "done_label": "Thế nào là xong",
+      "done_title": "Nghiệm thu khi đủ năm điều kiện",
+      "done_items": [
+        "Các việc trong phạm vi chạy trên môi trường thật.",
+        "Tích hợp hoạt động ổn định.",
+        "Chất lượng AI đạt ngưỡng đã thống nhất.",
+        "Người dùng đã được đào tạo.",
+        "Tài liệu và quy trình vận hành đã bàn giao."
+      ],
+      "done_note": "Việc ngoài phạm vi chỉ làm khi anh/chị duyệt bằng văn bản.",
+      "cta_text": "Trao đổi với Pythera về quy trình đầu tiên.",
+      "cta_label": "Đặt lịch đánh giá"
+    },
+    {
+      "type": "engagement",
+      "anchor": "hop-tac",
+      "background": "alt",
+      "label": "Hợp tác",
+      "title": "Hai cách hợp tác",
+      "intro": "Phí triển khai tính theo thời gian đội Pythera làm cùng anh/chị, từ khởi động đến nghiệm thu. Chi phí sử dụng AI tùy phương án.",
+      "models": [
+        {
+          "title": "Dùng AI do Pythera cung cấp",
+          "chip": "Trọn gói",
+          "rows": [
+            {
+              "k": "Cách dùng",
+              "v": "PyNote chạy với mô hình AI do Pythera cung cấp."
+            },
+            {
+              "k": "Chi phí AI",
+              "v": "Tính theo gói sử dụng, thanh toán cho Pythera."
+            },
+            {
+              "k": "Sau nghiệm thu",
+              "v": "Gia hạn gói với Pythera để tiếp tục dùng."
+            },
+            {
+              "k": "Phù hợp khi",
+              "v": "Muốn một đầu mối duy nhất và chi phí tối ưu."
+            }
+          ]
+        },
+        {
+          "title": "Dùng AI của nhà cung cấp khác",
+          "chip": "Linh hoạt",
+          "rows": [
+            {
+              "k": "Cách dùng",
+              "v": "PyNote kết nối với mô hình AI từ nhà cung cấp doanh nghiệp đã chọn."
+            },
+            {
+              "k": "Chi phí AI",
+              "v": "Doanh nghiệp thanh toán trực tiếp cho nhà cung cấp."
+            },
+            {
+              "k": "Sau nghiệm thu",
+              "v": "Tiếp tục thanh toán trực tiếp với nhà cung cấp."
+            },
+            {
+              "k": "Phù hợp khi",
+              "v": "Đã có hợp đồng hoặc yêu cầu riêng với một nhà cung cấp AI."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "anchor": "hoi-dap",
+      "background": "default",
+      "title": "Câu hỏi thường gặp",
+      "items": [
+        {
+          "q": "Dữ liệu của công ty có bị đưa ra ngoài không?",
+          "a": "Không bắt buộc. Với môi trường yêu cầu bảo mật cao, Pythera triển khai kín trên hạ tầng của anh/chị. Quản trị viên xem được thống kê sử dụng nhưng không đọc được nội dung trò chuyện của nhân viên."
+        },
+        {
+          "q": "Bao lâu thì thấy kết quả?",
+          "a": "Bắt đầu bằng bước đánh giá và chạy thử trên dữ liệu mẫu. Sau đó thí điểm ở một phòng ban, đo kết quả rồi mới mở rộng ra toàn công ty."
+        },
+        {
+          "q": "Chi phí được tính thế nào?",
+          "a": "Phí triển khai tính theo thời gian đội Pythera làm cùng anh/chị. Chi phí sử dụng AI có thể trả trọn gói qua Pythera hoặc trả trực tiếp cho nhà cung cấp anh/chị đã chọn."
+        },
+        {
+          "q": "Nếu kết quả không đạt thì sao?",
+          "a": "Nghiệm thu dựa trên 5 điều kiện thống nhất từ đầu, trong đó có ngưỡng chất lượng AI. Chưa đạt thì chưa nghiệm thu."
+        },
+        {
+          "q": "Nhân viên có cần biết lập trình không?",
+          "a": "Không. Nhân viên giao việc bằng tiếng Việt, như nhờ một đồng nghiệp."
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "anchor": "lien-he",
+      "background": "default",
+      "title": "Bắt đầu với một quy trình nhỏ trước",
+      "text": "Buổi đánh giá đầu tiên: Pythera cùng anh/chị chọn một quy trình, khảo sát dữ liệu và chạy thử trên dữ liệu mẫu. Sau đó mới chốt phạm vi và điều kiện nghiệm thu bằng văn bản.",
+      "assurances": [
+        {
+          "title": "Không phát sinh ngầm",
+          "text": "Phạm vi ghi rõ trong hợp đồng. Việc ngoài phạm vi phải được anh/chị duyệt bằng văn bản."
+        },
+        {
+          "title": "Biết rõ khi nào là xong",
+          "text": "Nghiệm thu theo 5 điều kiện thống nhất từ ngày đầu."
+        },
+        {
+          "title": "Dữ liệu trong tầm kiểm soát",
+          "text": "Phân quyền theo vai trò, hạn mức chi phí và nhật ký đầy đủ."
+        }
+      ],
+      "form_heading": "Anh/chị quan tâm lĩnh vực nào?",
+      "interests_aria": "Lĩnh vực quan tâm",
+      "interests": [
+        "Y tế",
+        "Quản trị doanh nghiệp",
+        "Phân tích tài chính",
+        "Camera AI",
+        "AI Data Center",
+        "Chatbot chăm sóc khách hàng",
+        "Chưa rõ, cần tư vấn"
+      ],
+      "name_label": "Họ và tên",
+      "company_label": "Công ty",
+      "phone_label": "Số điện thoại / Zalo",
+      "email_label": "Email",
+      "submit_label": "Đặt lịch đánh giá",
+      "done_title": "Cảm ơn anh/chị",
+      "done_text": "Đội Pythera sẽ liên hệ để hẹn lịch trao đổi.",
+      "endpoint": "",
+      "err_name": "Vui lòng nhập họ tên",
+      "err_company": "Vui lòng nhập tên công ty",
+      "err_phone": "Vui lòng để lại số điện thoại",
+      "err_phone_invalid": "Số điện thoại chưa đúng",
+      "err_email": "Email chưa đúng định dạng",
+      "sending_label": "Đang gửi",
+      "mailto_opened": "Ứng dụng email của bạn đã mở với nội dung soạn sẵn. Bấm gửi để hoàn tất.",
+      "send_failed": "Chưa gửi được. Vui lòng thử lại hoặc email <a href=\"mailto:contact@pythera.ai\">contact@pythera.ai</a>."
+    }
+  ]
+}

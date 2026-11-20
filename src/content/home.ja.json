@@ -1,0 +1,656 @@
+{
+  "sections": [
+    {
+      "type": "hero",
+      "background": "default",
+      "audience_label": "ご担当の組織",
+      "audience_aria": "組織の種類",
+      "audiences": [
+        {
+          "key": "dn",
+          "label": "企業",
+          "title": "手作業で数日かかっていたレポートが、数分で完成",
+          "lead": "普段の言葉で質問するだけ。PyNote が Excel、会計ソフト、社内システムから数字を集め、元データと照合してレポートを作成します。",
+          "visual": "ba",
+          "sectors": [
+            "quan-tri",
+            "tai-chinh",
+            "chatbot"
+          ],
+          "interest": "経営管理"
+        },
+        {
+          "key": "bv",
+          "label": "病院・クリニック",
+          "title": "医師はより速く読影でき、判断は医師が行います",
+          "lead": "Clara がX線・心電図の所見を提案。オンプレミスで稼働しインターネット不要のため、患者データが院外に出ることはありません。",
+          "visual": "y-te",
+          "sectors": [
+            "y-te"
+          ],
+          "interest": "医療"
+        },
+        {
+          "key": "nm",
+          "label": "工場・ビル",
+          "title": "既存のカメラを警報システムに。",
+          "lead": "転倒、暴力行為、異常行動を発生と同時に検知。映像は社内ネットワーク内に保持します。",
+          "visual": "camera",
+          "sectors": [
+            "camera",
+            "aidc"
+          ],
+          "interest": "カメラAI"
+        }
+      ],
+      "cta_primary_label": "業務診断を予約",
+      "cta_primary_href": "#lien-he",
+      "cta_secondary_label": "導入の流れを見る",
+      "cta_secondary_href": "#trien-khai",
+      "ba": {
+        "aria": "Pythera 導入前後の業務フロー",
+        "tabs_aria": "業務を選択",
+        "state_before": "現状",
+        "state_after": "Pythera 利用時",
+        "switch_label": "Pythera",
+        "tabs": [
+          {
+            "label": "レポート",
+            "before": [
+              "Excel・会計・CRM から数字を集める",
+              "手作業で表を結合",
+              "週末にメールで送る",
+              "数字を問い直され、やり直し"
+            ],
+            "before_out": "先週の数字が届くのは月曜日",
+            "after": [
+              "月曜午前8時に自動実行",
+              "正しいデータソースから取得",
+              "前週と比較し、Excel で出力",
+              "メールとグループチャットに送信"
+            ],
+            "after_badge": "承認待ち",
+            "after_out": "2チャネルが計画未達"
+          },
+          {
+            "label": "在庫",
+            "before": [
+              "在庫システムから在庫数を出力",
+              "発注点を手計算",
+              "入荷予定と照合",
+              "欠品してから気づく"
+            ],
+            "before_out": "人によって計算方法が違う",
+            "after": [
+              "定期的に在庫を自動チェック",
+              "安全在庫と発注点を計算",
+              "欠品しそうな品目を事前に通知",
+              "担当者に発注案を送信"
+            ],
+            "after_badge": "承認待ち",
+            "after_out": "発注案"
+          },
+          {
+            "label": "契約書",
+            "before": [
+              "フォルダから過去のひな形を探す",
+              "条項を一つずつ手で修正",
+              "経験者のチェック待ち",
+              "書式が毎回ばらばら"
+            ],
+            "before_out": "一部の人に依存",
+            "after": [
+              "承認済みのひな形から作成",
+              "社内規程と照合",
+              "すべての修正履歴を保存",
+              "送付前に承認者が確認"
+            ],
+            "after_badge": "承認待ち",
+            "after_out": "契約書案"
+          }
+        ]
+      }
+    },
+    {
+      "type": "sectors",
+      "anchor": "linh-vuc",
+      "background": "default",
+      "label": "事業領域",
+      "title": "Pythera が展開している領域",
+      "intro": "領域ごとに導入方法は異なりますが、いずれも Pythera 共通のAIモデルとソフトウェア PyNote の上で動きます。",
+      "cta_label": "相談する",
+      "items": [
+        {
+          "key": "y-te",
+          "title": "医療",
+          "tagline": "画像の読影をより速く、人材の能力をより明確に。",
+          "points": [
+            "Clara がX線・心電図の所見を提案し、最終判断は医師",
+            "職種ごとに人材の能力を評価",
+            "オンプレミスで稼働、インターネット不要"
+          ],
+          "audience": "病院・クリニック",
+          "illustration": "y-te",
+          "interest": "医療"
+        },
+        {
+          "key": "quan-tri",
+          "title": "経営管理",
+          "tagline": "散らばったデータから意思決定へ。",
+          "points": [
+            "「なぜ計画とずれたか」を業務システムのデータに直接質問",
+            "指標と用語を計算前に統一して定義",
+            "Excel、Google Drive、既存のソフトウェアと連携"
+          ],
+          "audience": "企業・経営層",
+          "illustration": "quan-tri",
+          "interest": "経営管理"
+        },
+        {
+          "key": "tai-chinh",
+          "title": "財務分析",
+          "tagline": "財務レポートを数分で。",
+          "points": [
+            "財務諸表から指標とトレンドを抽出",
+            "実績と計画の差異を要因分解",
+            "Excel ファイルから始め、会計ソフトと直接連携"
+          ],
+          "audience": "財務部門・CFO",
+          "illustration": "tai-chinh",
+          "interest": "財務分析"
+        },
+        {
+          "key": "camera",
+          "title": "カメラAI",
+          "tagline": "既存のカメラを警報システムに。",
+          "points": [
+            "複数のカメラをまたいで人物を検出・再識別",
+            "転倒、暴力行為、異常行動を警告",
+            "映像は社内ネットワーク内に保持"
+          ],
+          "audience": "ビル・工場・学校",
+          "illustration": "camera",
+          "interest": "カメラAI"
+        },
+        {
+          "key": "aidc",
+          "title": "AIデータセンター",
+          "tagline": "AI ワークロード向けのインフラ設計と運用支援。",
+          "points": [
+            "容量、GPU クラスタ、ネットワーク、冷却を設計支援",
+            "負荷・温度・電力の異常を早期に警告",
+            "性能、電力コスト、サービスレベルをレポート"
+          ],
+          "audience": "事業者・運用会社",
+          "illustration": "aidc",
+          "interest": "AIデータセンター"
+        },
+        {
+          "key": "chatbot",
+          "title": "カスタマーサポート・チャットボット",
+          "tagline": "自社のナレッジから顧客に回答。",
+          "points": [
+            "カスタマーサポートと営業を支援",
+            "回答は自社の資料に基づく",
+            "多言語対応"
+          ],
+          "audience": "カスタマーサポート・営業",
+          "illustration": "chatbot",
+          "interest": "カスタマーサポート・チャットボット"
+        }
+      ],
+      "core_label": "共通基盤",
+      "core_items": [
+        "PyNote",
+        "Clara",
+        "Vision",
+        "LLM",
+        "DPR"
+      ]
+    },
+    {
+      "type": "partners",
+      "anchor": "doi-tac",
+      "background": "alt",
+      "aria": "パートナー",
+      "label": "お客様・パートナー",
+      "title": "企業・病院・大学との協業実績",
+      "logos": [
+        {
+          "name": "T&A Ogilvy",
+          "image": "/media/partners/ta-ogilvy.png"
+        },
+        {
+          "name": "MobiFone",
+          "image": "/media/partners/mobifone.png"
+        },
+        {
+          "name": "Merck",
+          "image": "/media/partners/merck.png"
+        },
+        {
+          "name": "情報技術大学（UIT）",
+          "image": "/media/partners/uit.png"
+        },
+        {
+          "name": "ホーチミン市オープン大学",
+          "image": "/media/partners/dh-mo-tphcm.png"
+        },
+        {
+          "name": "FPT University",
+          "image": "/media/partners/fpt-university.png"
+        },
+        {
+          "name": "Ecovillage Saigon River",
+          "image": "/media/partners/ecovillage.png"
+        },
+        {
+          "name": "Sotrans",
+          "image": "/media/partners/sotrans.png"
+        },
+        {
+          "name": "第175軍病院",
+          "image": "/media/partners/benh-vien-175.png"
+        }
+      ]
+    },
+    {
+      "type": "problems",
+      "anchor": "van-de",
+      "background": "default",
+      "label": "課題",
+      "title": "社員は毎日AIを使っているのに、会社としての効果は測れていない",
+      "intro": "ツールは人によってばらばら。コストは個人ごとに積み上がり、成果を誰も集計できません。",
+      "pains": [
+        {
+          "title": "使い方がばらばら",
+          "text": "人ごとにツールも使い方も違い、何をAIに任せるかの共通ルールがありません。"
+        },
+        {
+          "title": "情報漏えいと法的リスク",
+          "text": "顧客データが外部サービスに貼り付けられています。2025年個人データ保護法により、その責任は企業が負います。"
+        },
+        {
+          "title": "費用対効果が見えない",
+          "text": "サブスクリプションやAI利用料が個人単位で積み上がり、効果は誰にも分かりません。"
+        }
+      ],
+      "col_quote": "よく聞く声",
+      "col_now": "現状",
+      "col_new": "Pythera 導入後",
+      "rows": [
+        {
+          "quote": "「3人に聞くと、3つの違う数字が出てくる」",
+          "now": "データが複数のシステムに分散し、全体像を把握している人がいません。",
+          "new": "AI は統一されたひとつのデータソースを参照し、社内システムと直接つながります。"
+        },
+        {
+          "quote": "「優秀な社員が一日中 Excel 作業をしている」",
+          "now": "繰り返し作業が専門人材の時間を奪っています。",
+          "new": "繰り返し作業を再利用できるスキルにまとめ、優秀な人材は判断が必要な仕事に戻れます。"
+        },
+        {
+          "quote": "「担当者が辞めると、業務ごと失われる」",
+          "now": "ノウハウが一部の人の頭の中にあり、引き継ぎが困難です。",
+          "new": "資料と手順を共有プロジェクトに保存し、誰が担当しても同じ基準で進められます。"
+        }
+      ]
+    },
+    {
+      "type": "calculator",
+      "anchor": "chi-phi",
+      "background": "alt",
+      "label": "隠れコスト",
+      "title": "手作業にどれだけのコストがかかっていますか？",
+      "intro": "自社の実態に合わせてスライダーを動かしてください。",
+      "people_label": "レポート作成・照合・データ入力の担当人数",
+      "hours_label": "1人あたりの週の作業時間",
+      "rate_label": "1時間あたりの人件費",
+      "auto_label": "自動化できる業務の割合",
+      "default_people": 10,
+      "default_hours": 8,
+      "default_rate": 100,
+      "default_auto": 50,
+      "result_lead": "年間でかかっている時間",
+      "result_unit": "時間（繰り返し作業）",
+      "days_label": "人日",
+      "money_label": "百万ドン",
+      "gain_label": "年間で取り戻せる時間",
+      "cta_label": "まずAIに任せるべき業務を確認",
+      "cta_href": "#lien-he",
+      "fmt_people": "{n}人",
+      "fmt_hours": "{n}時間",
+      "fmt_rate": "{n}ドン",
+      "fmt_gain": "{h}時間 · {m}百万ドン",
+      "fmt_formula": "{p}人 × {h}時間 × 48週",
+      "thousands_sep": ","
+    },
+    {
+      "type": "solution",
+      "anchor": "giai-phap",
+      "background": "default",
+      "label": "ソリューション",
+      "title": "既製のソフトウェアと、伴走するチーム",
+      "intro": "PyNote は共通のソフトウェアです。Pythera の導入チームが業務を理解し、設定とシステム連携を企業ごとに行います。",
+      "columns": [
+        {
+          "label": "プラットフォーム",
+          "title": "PyNote",
+          "highlight": true,
+          "points": [
+            {
+              "title": "全社で同じ基準を共有",
+              "text": "AI のスキルと業務フローを一度設定すれば、全員で使えます。"
+            },
+            {
+              "title": "レポートを定期自動実行",
+              "text": "結果はメール、Slack、Teams、Telegram で配信。"
+            },
+            {
+              "title": "誰がどれだけ使っているかを把握",
+              "text": "メンバー、利用上限、ログを1つの管理画面で。"
+            }
+          ]
+        },
+        {
+          "label": "導入チーム",
+          "title": "導入エンジニア",
+          "highlight": false,
+          "points": [
+            {
+              "title": "業務に合わせて構築",
+              "text": "お客様の環境で直接、課題を調査・分析します。"
+            },
+            {
+              "title": "既存システムと連携",
+              "text": "合意した範囲で、データと関連システムを連携します。"
+            },
+            {
+              "title": "本番稼働まで伴走",
+              "text": "テスト、ユーザー研修、引き渡し、運用支援まで。"
+            }
+          ]
+        }
+      ],
+      "show_mocks": true,
+      "mocks_aria": "ソフトウェアの画面",
+      "mock_skills": {
+        "label": "スキル",
+        "caption": "一度設定すれば、組織全体で共有。",
+        "items": [
+          {
+            "name": "sales-report",
+            "pill": "共有",
+            "shared": true,
+            "text": "自社の KPI フレームでレポートを作成。"
+          },
+          {
+            "name": "inventory-control",
+            "pill": "共有",
+            "shared": true,
+            "text": "安全在庫と発注点を計算。"
+          },
+          {
+            "name": "contract-drafting",
+            "pill": "個人",
+            "shared": false,
+            "text": "承認済みのひな形で契約書を作成。"
+          }
+        ]
+      },
+      "mock_schedule": {
+        "label": "定期タスク",
+        "caption": "レポートが定期実行され、適切な担当者に届きます。",
+        "title": "週次売上サマリー",
+        "text": "チャネル別に前々週と比較し、Excel で出力。",
+        "days": [
+          "月",
+          "火",
+          "水",
+          "木",
+          "金",
+          "土",
+          "日"
+        ],
+        "active_day": 1,
+        "time_title": "毎週 午前8:00",
+        "time_text": "送信先：PyNote 通知、メール、グループチャット"
+      },
+      "mock_admin": {
+        "label": "管理",
+        "caption": "誰が、どれだけ使い、どんな成果が出ているか。",
+        "stats": [
+          {
+            "label": "アクティブメンバー",
+            "value": "13 / 31"
+          },
+          {
+            "label": "今月のメッセージ",
+            "value": "1,105"
+          },
+          {
+            "label": "使用トークン",
+            "value": "1億3,300万"
+          },
+          {
+            "label": "エラー件数",
+            "value": "28"
+          }
+        ]
+      },
+      "cta_text": "どの業務からAIを導入すべきか知りたいですか？",
+      "cta_label": "業務診断を予約"
+    },
+    {
+      "type": "control",
+      "anchor": "kiem-soat",
+      "background": "alt",
+      "label": "管理とセキュリティ",
+      "title": "主導権は企業側に",
+      "cards": [
+        {
+          "label": "権限管理",
+          "title": "適切な人に適切なデータを",
+          "text": "役割ごとにメンバーとアクセス範囲を管理。"
+        },
+        {
+          "label": "利用上限",
+          "title": "コストを把握",
+          "text": "利用上限を設定し、上限に近づくと事前に通知。"
+        },
+        {
+          "label": "ログ",
+          "title": "すべての操作を記録",
+          "text": "管理ログと利用レポートで、必要なときに追跡できます。"
+        },
+        {
+          "label": "承認者",
+          "title": "重要な工程で確認",
+          "text": "重要な結果は、他システムに渡す前に承認者が確認します。"
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "anchor": "trien-khai",
+      "background": "default",
+      "label": "導入",
+      "title": "5つのステップで導入",
+      "intro": "各ステップに具体的な成果物があり、確認してから次に進みます。",
+      "steps": [
+        {
+          "n": "ステップ1",
+          "title": "調査",
+          "text": "課題、利用者、データ、関連システムを明確にします。",
+          "output": "成果物：作業範囲"
+        },
+        {
+          "n": "ステップ2",
+          "title": "設計",
+          "text": "作業内容、処理フロー、連携、品質基準を確定します。",
+          "output": "成果物：承認済みの設計書"
+        },
+        {
+          "n": "ステップ3",
+          "title": "試行",
+          "text": "実際の利用者が試し、テストセットで AI の品質を測定します。",
+          "output": "成果物：テスト結果"
+        },
+        {
+          "n": "ステップ4",
+          "title": "本番運用",
+          "text": "本番環境へ移行し、利用者研修と手厚いサポートを行います。",
+          "output": "成果物：稼働中のシステム"
+        },
+        {
+          "n": "ステップ5",
+          "title": "検収",
+          "text": "合意した条件と照らし合わせ、引き渡します。",
+          "output": "成果物：検収書"
+        }
+      ],
+      "done_label": "完了の定義",
+      "done_title": "5つの条件を満たして検収",
+      "done_items": [
+        "範囲内の業務が本番環境で稼働している。",
+        "連携が安定して動作している。",
+        "AI の品質が合意した基準を満たしている。",
+        "利用者への研修が完了している。",
+        "ドキュメントと運用手順が引き渡されている。"
+      ],
+      "done_note": "範囲外の作業は、書面での承認後にのみ行います。",
+      "cta_text": "最初の業務について Pythera にご相談ください。",
+      "cta_label": "業務診断を予約"
+    },
+    {
+      "type": "engagement",
+      "anchor": "hop-tac",
+      "background": "alt",
+      "label": "契約形態",
+      "title": "2つの契約形態",
+      "intro": "導入費用は、キックオフから検収まで Pythera のチームが関わる時間に基づきます。AI の利用料金はプランによって異なります。",
+      "models": [
+        {
+          "title": "Pythera 提供のAIを利用",
+          "chip": "一括",
+          "rows": [
+            {
+              "k": "利用方法",
+              "v": "PyNote は Pythera が提供する AI モデルで動作します。"
+            },
+            {
+              "k": "AI 利用料",
+              "v": "利用プランに応じて Pythera にお支払いいただきます。"
+            },
+            {
+              "k": "検収後",
+              "v": "Pythera とプランを更新して継続利用できます。"
+            },
+            {
+              "k": "こんな場合に",
+              "v": "窓口を一本化し、コストを最適化したい場合。"
+            }
+          ]
+        },
+        {
+          "title": "他社のAIを利用",
+          "chip": "柔軟",
+          "rows": [
+            {
+              "k": "利用方法",
+              "v": "PyNote がお客様の選んだプロバイダーの AI モデルと接続します。"
+            },
+            {
+              "k": "AI 利用料",
+              "v": "プロバイダーに直接お支払いいただきます。"
+            },
+            {
+              "k": "検収後",
+              "v": "引き続きプロバイダーに直接お支払いいただきます。"
+            },
+            {
+              "k": "こんな場合に",
+              "v": "特定の AI プロバイダーとの契約や要件がすでにある場合。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "anchor": "hoi-dap",
+      "background": "default",
+      "title": "よくあるご質問",
+      "items": [
+        {
+          "q": "自社のデータが外部に出ることはありますか？",
+          "a": "その必要はありません。高いセキュリティが求められる環境では、お客様のインフラ上に閉じた形で導入します。管理者は利用状況を確認できますが、社員の会話内容は閲覧できません。"
+        },
+        {
+          "q": "どのくらいで成果が出ますか？",
+          "a": "まず診断とサンプルデータでの試行を行い、次に1部門で試験導入して成果を測定してから、全社に展開します。"
+        },
+        {
+          "q": "費用はどのように決まりますか？",
+          "a": "導入費用は Pythera のチームが関わる時間に基づきます。AI の利用料は Pythera への一括払い、またはお客様が選んだプロバイダーへの直接払いを選べます。"
+        },
+        {
+          "q": "成果が出なかった場合は？",
+          "a": "検収は最初に合意した5つの条件に基づき、AI の品質基準も含まれます。基準を満たさなければ検収されません。"
+        },
+        {
+          "q": "社員にプログラミングの知識は必要ですか？",
+          "a": "いいえ。同僚に頼むように、普段の言葉で依頼するだけです。"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "anchor": "lien-he",
+      "background": "default",
+      "title": "まずは小さな業務ひとつから",
+      "text": "最初の診断では、Pythera がお客様と一緒に業務をひとつ選び、データを調査してサンプルデータで試行します。その後、作業範囲と検収条件を書面で合意します。",
+      "assurances": [
+        {
+          "title": "追加作業は事前合意のみ",
+          "text": "作業範囲は契約書に明記します。範囲外の作業には書面での承認が必要です。"
+        },
+        {
+          "title": "完了条件が明確",
+          "text": "初日に合意した5つの条件で検収します。"
+        },
+        {
+          "title": "データを管理下に",
+          "text": "役割別の権限、費用の上限、完全なログ。"
+        }
+      ],
+      "form_heading": "ご関心のある領域は？",
+      "interests_aria": "関心のある領域",
+      "interests": [
+        "医療",
+        "経営管理",
+        "財務分析",
+        "カメラAI",
+        "AIデータセンター",
+        "カスタマーサポート・チャットボット",
+        "まだ決めていない"
+      ],
+      "name_label": "氏名",
+      "company_label": "会社名",
+      "phone_label": "電話番号",
+      "email_label": "メールアドレス",
+      "submit_label": "業務診断を予約",
+      "done_title": "ありがとうございます",
+      "done_text": "Pythera のチームより、日程調整のためご連絡いたします。",
+      "endpoint": "",
+      "err_name": "氏名を入力してください",
+      "err_company": "会社名を入力してください",
+      "err_phone": "電話番号を入力してください",
+      "err_phone_invalid": "電話番号をご確認ください",
+      "err_email": "メールアドレスの形式をご確認ください",
+      "sending_label": "送信中",
+      "mailto_opened": "メールアプリが開き、内容が入力されています。送信して完了してください。",
+      "send_failed": "送信できませんでした。もう一度お試しいただくか、<a href=\"mailto:contact@pythera.ai\">contact@pythera.ai</a> までご連絡ください。"
+    }
+  ]
+}

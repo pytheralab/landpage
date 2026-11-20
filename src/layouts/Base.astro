@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { LOCALES, LOCALE_PATH, OG_LOCALE } from '../lib/content.js';
+
+const { locale, site, pageData } = Astro.props;
+const url = new URL(LOCALE_PATH[locale], site.site_url).href;
+const ogImage = new URL(site.og_image, site.site_url).href;
+const defaultTheme = site.default_theme === 'dark' ? 'dark' : 'light';
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.company_name,
+  url: site.site_url,
+  logo: new URL('/logo.svg', site.site_url).href,
+  email: site.contact_email || undefined,
+  telephone: site.phone || undefined,
+  address: site.address || undefined,
+};
+const safeJson = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
+---
+<!doctype html>
+<html lang={locale}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{site.seo_title}</title>
+  <meta name="description" content={site.seo_description}>
+  <link rel="canonical" href={url}>
+  {LOCALES.map((l) => <link rel="alternate" hreflang={l} href={new URL(LOCALE_PATH[l], site.site_url).href}>)}
+  <link rel="alternate" hreflang="x-default" href={new URL('/', site.site_url).href}>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content={site.brand_name}>
+  <meta property="og:title" content={site.seo_title}>
+  <meta property="og:description" content={site.seo_description}>
+  <meta property="og:url" content={url}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:locale" content={OG_LOCALE[locale]}>
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <script is:inline define:vars={{ defaultTheme }}>
+    document.documentElement.classList.add('js');
+    var t; try { t = localStorage.getItem('theme'); } catch (e) {}
+    document.documentElement.setAttribute('data-theme', t === 'dark' || t === 'light' ? t : defaultTheme);
+  </script>
+  <script type="application/ld+json" set:html={safeJson(org)}></script>
+</head>
+<body>
+  <div class="scroll-prog" aria-hidden="true"></div>
+  <Header locale={locale} site={site} />
+  <main id="top" class="wrap">
+    <slot />
+  </main>
+  <Footer site={site} />
+  <script type="application/json" id="page-data" set:html={safeJson(pageData)}></script>
+  <script is:inline src="/js/main.js"></script>
+</body>
+</html>

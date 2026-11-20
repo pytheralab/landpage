@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" stroke="#00E8D2" stroke-width="8">
+  <defs><mask id="h"><rect width="256" height="256" fill="#fff"/><g fill="#000" stroke="none"><circle cx="128" cy="27" r="13"/><circle cx="40" cy="78" r="13"/><circle cx="216" cy="78" r="13"/><circle cx="127" cy="130" r="13"/><circle cx="40" cy="180" r="13"/><circle cx="216" cy="181" r="13"/><circle cx="127" cy="233" r="13"/></g></mask></defs>
+  <path mask="url(#h)" d="M128 27 216 78M40 78 92 48M40 78 127 130M216 78 127 130M127 130V233M42 120V166M226 120V168M78 204 127 233M216 181 170 210"/>
+  <circle cx="128" cy="27" r="13"/><circle cx="40" cy="78" r="13"/><circle cx="216" cy="78" r="13"/><circle cx="127" cy="130" r="13"/><circle cx="40" cy="180" r="13"/><circle cx="216" cy="181" r="13"/><circle cx="127" cy="233" r="13"/>
+</svg>

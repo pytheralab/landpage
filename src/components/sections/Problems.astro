@@ -1,0 +1,25 @@
+---
+const { s } = Astro.props;
+---
+<section class:list={['section', { alt: s.background === 'alt' }]} id={s.anchor}>
+  <div class="pb">
+    <div class="pb-head">
+      <span class="label">{s.label}</span>
+      <h2>{s.title}</h2>
+      <p class="pb-lead">{s.intro}</p>
+    </div>
+    <div class="pb-cons row">
+      {s.pains.map((p) => <div><b>{p.title}</b><span>{p.text}</span></div>)}
+    </div>
+    <div class="pb-table">
+      <div class="pb-th"><span>{s.col_quote}</span><span>{s.col_now}</span><span>{s.col_new}</span></div>
+      {s.rows.map((r) => (
+        <div class="pb-row">
+          <div class="q"><p>{r.quote}</p></div>
+          <div class="now"><p>{r.now}</p></div>
+          <div class="new"><p>{r.new}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

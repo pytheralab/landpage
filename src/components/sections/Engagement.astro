@@ -1,0 +1,18 @@
+---
+const { s } = Astro.props;
+---
+<section class:list={['section', { alt: s.background === 'alt' }]} id={s.anchor}>
+  <div class="section-head">
+    <span class="label">{s.label}</span>
+    <h2>{s.title}</h2>
+    {s.intro && <p>{s.intro}</p>}
+  </div>
+  <div class="two">
+    {s.models.map((m) => (
+      <div class="card model">
+        <h3>{m.title} {m.chip && <span class="chip">{m.chip}</span>}</h3>
+        <dl class="kv">{m.rows.map((r) => <div><dt>{r.k}</dt><dd>{r.v}</dd></div>)}</dl>
+      </div>
+    ))}
+  </div>
+</section>

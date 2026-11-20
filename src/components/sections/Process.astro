@@ -1,0 +1,22 @@
+---
+const { s } = Astro.props;
+---
+<section class:list={['section', { alt: s.background === 'alt' }]} id={s.anchor}>
+  <div class="section-head">
+    <span class="label">{s.label}</span>
+    <h2>{s.title}</h2>
+    {s.intro && <p>{s.intro}</p>}
+  </div>
+  <div class="steps">
+    {s.steps.map((st) => <div class="st"><span class="n">{st.n}</span><h3>{st.title}</h3><p>{st.text}</p><span class="o">{st.output}</span></div>)}
+  </div>
+  <div class="done one">
+    <div class="card">
+      <span class="label">{s.done_label}</span>
+      <h3>{s.done_title}</h3>
+      <ul class="check">{s.done_items.map((d) => <li>{d}</li>)}</ul>
+      {s.done_note && <p class="done-f">{s.done_note}</p>}
+    </div>
+  </div>
+  {s.cta_text && <div class="cta-band"><p>{s.cta_text}</p><a class="btn btn-primary" href="#lien-he">{s.cta_label}</a></div>}
+</section>

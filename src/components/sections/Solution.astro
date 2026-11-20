@@ -1,0 +1,44 @@
+---
+const { s } = Astro.props;
+---
+<section class:list={['section', { alt: s.background === 'alt' }]} id={s.anchor}>
+  <div class="section-head">
+    <span class="label">{s.label}</span>
+    <h2>{s.title}</h2>
+    {s.intro && <p>{s.intro}</p>}
+  </div>
+  <div class="two">
+    {s.columns.map((c) => (
+      <div class:list={['card', { dark: c.highlight }]}>
+        <span class="label">{c.label}</span>
+        <h3>{c.title}</h3>
+        <ul class="ben">{c.points.map((p) => <li><b>{p.title}</b><span>{p.text}</span></li>)}</ul>
+      </div>
+    ))}
+  </div>
+  {s.show_mocks && (
+    <div class="mocks" aria-label={s.mocks_aria}>
+      <div class="mock">
+        <div class="cap"><span class="label">{s.mock_skills.label}</span><p>{s.mock_skills.caption}</p></div>
+        <div class="screen">
+          {s.mock_skills.items.map((it) => <div class="sk"><b>{it.name} <span class:list={['pill', { g: it.shared }]}>{it.pill}</span></b><span>{it.text}</span></div>)}
+        </div>
+      </div>
+      <div class="mock">
+        <div class="cap"><span class="label">{s.mock_schedule.label}</span><p>{s.mock_schedule.caption}</p></div>
+        <div class="screen">
+          <div class="sk"><b>{s.mock_schedule.title}</b><span>{s.mock_schedule.text}</span></div>
+          <div class="days">{s.mock_schedule.days.map((d, i) => <span class:list={{ on: i === s.mock_schedule.active_day - 1 }}>{d}</span>)}</div>
+          <div class="sk"><b>{s.mock_schedule.time_title}</b><span>{s.mock_schedule.time_text}</span></div>
+        </div>
+      </div>
+      <div class="mock">
+        <div class="cap"><span class="label">{s.mock_admin.label}</span><p>{s.mock_admin.caption}</p></div>
+        <div class="screen">
+          <div class="stats">{s.mock_admin.stats.map((st) => <div class="stat"><small>{st.label}</small><b>{st.value}</b></div>)}</div>
+        </div>
+      </div>
+    </div>
+  )}
+  {s.cta_text && <div class="cta-band"><p>{s.cta_text}</p><a class="btn btn-primary" href="#lien-he">{s.cta_label}</a></div>}
+</section>

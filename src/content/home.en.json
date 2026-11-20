@@ -1,0 +1,656 @@
+{
+  "sections": [
+    {
+      "type": "hero",
+      "background": "default",
+      "audience_label": "You run a",
+      "audience_aria": "Organization type",
+      "audiences": [
+        {
+          "key": "dn",
+          "label": "Business",
+          "title": "Reports that took days by hand now take minutes.",
+          "lead": "Ask in plain language. PyNote pulls numbers from Excel, accounting software and internal systems, checks them against the source data and builds the report.",
+          "visual": "ba",
+          "sectors": [
+            "quan-tri",
+            "tai-chinh",
+            "chatbot"
+          ],
+          "interest": "Business management"
+        },
+        {
+          "key": "bv",
+          "label": "Hospitals, clinics",
+          "title": "Doctors read images faster, and the decision stays with them.",
+          "lead": "Clara suggests X-ray and ECG readings and runs on-site without internet, so patient data never leaves the hospital.",
+          "visual": "y-te",
+          "sectors": [
+            "y-te"
+          ],
+          "interest": "Healthcare"
+        },
+        {
+          "key": "nm",
+          "label": "Factory or building",
+          "title": "Turn existing cameras into an alert system.",
+          "lead": "Detects falls, fights and unusual behavior as they happen. Footage stays on your internal network.",
+          "visual": "camera",
+          "sectors": [
+            "camera",
+            "aidc"
+          ],
+          "interest": "Camera AI"
+        }
+      ],
+      "cta_primary_label": "Book an assessment",
+      "cta_primary_href": "#lien-he",
+      "cta_secondary_label": "See how it works",
+      "cta_secondary_href": "#trien-khai",
+      "ba": {
+        "aria": "Workflow before and after Pythera",
+        "tabs_aria": "Choose a workflow",
+        "state_before": "Today",
+        "state_after": "Using Pythera",
+        "switch_label": "Pythera",
+        "tabs": [
+          {
+            "label": "Reports",
+            "before": [
+              "Pull numbers from Excel, accounting, CRM",
+              "Merge tables by hand",
+              "Email it out at week's end",
+              "Numbers get questioned, redo it"
+            ],
+            "before_out": "Last week's numbers arrive on Monday",
+            "after": [
+              "Runs automatically at 8 a.m. Monday",
+              "Pulls from the right source",
+              "Compares with last week, exports to Excel",
+              "Sends to email and group chat"
+            ],
+            "after_badge": "Awaiting approval",
+            "after_out": "2 channels below plan"
+          },
+          {
+            "label": "Inventory",
+            "before": [
+              "Export stock levels from the warehouse system",
+              "Work out reorder points by hand",
+              "Check against incoming orders",
+              "Spot shortages too late"
+            ],
+            "before_out": "Everyone calculates differently",
+            "after": [
+              "Checks inventory on schedule",
+              "Calculates safety stock and reorder points",
+              "Flags items about to run out",
+              "Sends a proposal to the owner"
+            ],
+            "after_badge": "Awaiting approval",
+            "after_out": "purchase proposal"
+          },
+          {
+            "label": "Contracts",
+            "before": [
+              "Dig up old templates in folders",
+              "Edit each clause by hand",
+              "Wait for a senior to review",
+              "Every version looks different"
+            ],
+            "before_out": "Depends on a few people",
+            "after": [
+              "Drafts from approved templates",
+              "Checks against internal rules",
+              "Keeps every revision",
+              "Approver reviews before sending"
+            ],
+            "after_badge": "Awaiting approval",
+            "after_out": "contract draft"
+          }
+        ]
+      }
+    },
+    {
+      "type": "sectors",
+      "anchor": "linh-vuc",
+      "background": "default",
+      "label": "Industries",
+      "title": "Where Pythera works today",
+      "intro": "Each industry has its own rollout, built on Pythera's shared AI models and the PyNote software.",
+      "cta_label": "Talk to us",
+      "items": [
+        {
+          "key": "y-te",
+          "title": "Healthcare",
+          "tagline": "Faster image reading, a clearer view of staff skills.",
+          "points": [
+            "Clara suggests X-ray and ECG readings, the doctor decides",
+            "Staff competency assessed by role",
+            "Runs on-site, no internet required"
+          ],
+          "audience": "Hospitals, clinics",
+          "illustration": "y-te",
+          "interest": "Healthcare"
+        },
+        {
+          "key": "quan-tri",
+          "title": "Business management",
+          "tagline": "From scattered data to decisions.",
+          "points": [
+            "Ask “why are we off plan” directly on your system data",
+            "Metrics and terms are defined consistently before any calculation",
+            "Connects to Excel, Google Drive and the software you already use"
+          ],
+          "audience": "Companies, leadership teams",
+          "illustration": "quan-tri",
+          "interest": "Business management"
+        },
+        {
+          "key": "tai-chinh",
+          "title": "Financial analysis",
+          "tagline": "Financial reports in minutes.",
+          "points": [
+            "Extracts ratios and trends from financial statements",
+            "Breaks down actual vs. plan variances",
+            "Start from Excel files, then connect your accounting software"
+          ],
+          "audience": "Finance teams, CFOs",
+          "illustration": "tai-chinh",
+          "interest": "Financial analysis"
+        },
+        {
+          "key": "camera",
+          "title": "Camera AI",
+          "tagline": "Turn existing cameras into an alert system.",
+          "points": [
+            "Detects and re-identifies people across cameras",
+            "Alerts for falls, fights and unusual behavior",
+            "Footage stays on your internal network"
+          ],
+          "audience": "Buildings, factories, schools",
+          "illustration": "camera",
+          "interest": "Camera AI"
+        },
+        {
+          "key": "aidc",
+          "title": "AI Data Center",
+          "tagline": "Infrastructure and operations advice for AI workloads.",
+          "points": [
+            "Capacity, GPU cluster, network and cooling advice",
+            "Early alerts on load, temperature and power anomalies",
+            "Reports on performance, power cost and service levels"
+          ],
+          "audience": "Investors, operators",
+          "illustration": "aidc",
+          "interest": "AI Data Center"
+        },
+        {
+          "key": "chatbot",
+          "title": "Customer service chatbot",
+          "tagline": "Answers customers from your company knowledge base.",
+          "points": [
+            "Supports customer service and sales",
+            "Answers come from your own documents",
+            "Multilingual"
+          ],
+          "audience": "Customer service, sales",
+          "illustration": "chatbot",
+          "interest": "Customer service chatbot"
+        }
+      ],
+      "core_label": "Shared platform",
+      "core_items": [
+        "PyNote",
+        "Clara",
+        "Vision",
+        "LLM",
+        "DPR"
+      ]
+    },
+    {
+      "type": "partners",
+      "anchor": "doi-tac",
+      "background": "alt",
+      "aria": "Partners",
+      "label": "Clients and partners",
+      "title": "We've worked with companies, hospitals and universities",
+      "logos": [
+        {
+          "name": "T&A Ogilvy",
+          "image": "/media/partners/ta-ogilvy.png"
+        },
+        {
+          "name": "MobiFone",
+          "image": "/media/partners/mobifone.png"
+        },
+        {
+          "name": "Merck",
+          "image": "/media/partners/merck.png"
+        },
+        {
+          "name": "University of Information Technology (UIT)",
+          "image": "/media/partners/uit.png"
+        },
+        {
+          "name": "Ho Chi Minh City Open University",
+          "image": "/media/partners/dh-mo-tphcm.png"
+        },
+        {
+          "name": "FPT University",
+          "image": "/media/partners/fpt-university.png"
+        },
+        {
+          "name": "Ecovillage Saigon River",
+          "image": "/media/partners/ecovillage.png"
+        },
+        {
+          "name": "Sotrans",
+          "image": "/media/partners/sotrans.png"
+        },
+        {
+          "name": "Military Hospital 175",
+          "image": "/media/partners/benh-vien-175.png"
+        }
+      ]
+    },
+    {
+      "type": "problems",
+      "anchor": "van-de",
+      "background": "default",
+      "label": "Challenges",
+      "title": "Your people use AI every day, but the company can't measure the impact",
+      "intro": "Everyone uses a different tool. Costs add up person by person, and no one can roll up the results.",
+      "pains": [
+        {
+          "title": "No common standard",
+          "text": "Each person has their own tool and habits. There's no shared rule on what to hand to AI."
+        },
+        {
+          "title": "Data leaks, legal risk",
+          "text": "Customer data gets pasted into outside services. Under Vietnam's 2025 Personal Data Protection Law, the company is accountable for that data."
+        },
+        {
+          "title": "Unmeasured spend",
+          "text": "Subscriptions and AI usage fees pile up per person, and nobody knows what they deliver."
+        }
+      ],
+      "col_quote": "Sound familiar?",
+      "col_now": "Today",
+      "col_new": "With Pythera",
+      "rows": [
+        {
+          "quote": "“Ask three people, get three numbers.”",
+          "now": "Data is split across systems and no one has the full picture.",
+          "new": "AI reads from one agreed data source, connected directly to your company systems."
+        },
+        {
+          "quote": "“Our best people spend all day in Excel.”",
+          "now": "Repetitive work eats up your experts' time.",
+          "new": "Repetitive tasks become reusable skills, and your best people get back to judgment calls."
+        },
+        {
+          "quote": "“When they leave, the whole process leaves with them.”",
+          "now": "Know-how lives in a few people's heads and is hard to hand over.",
+          "new": "Documents and instructions live in shared projects, so everyone follows the same standard."
+        }
+      ]
+    },
+    {
+      "type": "calculator",
+      "anchor": "chi-phi",
+      "background": "alt",
+      "label": "Hidden cost",
+      "title": "How much is manual work costing you?",
+      "intro": "Move the sliders to match your company.",
+      "people_label": "People doing reports, reconciliation, data entry",
+      "hours_label": "Hours per person per week on that work",
+      "rate_label": "Cost per labor hour",
+      "auto_label": "Share of the work that can be automated",
+      "default_people": 10,
+      "default_hours": 8,
+      "default_rate": 100,
+      "default_auto": 50,
+      "result_lead": "Each year your company spends",
+      "result_unit": "hours on repetitive work",
+      "days_label": "working days",
+      "money_label": "million VND",
+      "gain_label": "Time you could win back each year",
+      "cta_label": "See what to hand to AI first",
+      "cta_href": "#lien-he",
+      "fmt_people": "{n} people",
+      "fmt_hours": "{n} hrs",
+      "fmt_rate": "{n} VND",
+      "fmt_gain": "{h} hours · {m} million VND",
+      "fmt_formula": "{p} people × {h} hrs × 48 working weeks",
+      "thousands_sep": ","
+    },
+    {
+      "type": "solution",
+      "anchor": "giai-phap",
+      "background": "default",
+      "label": "Solution",
+      "title": "Ready-made software, a team that works alongside you",
+      "intro": "PyNote is the shared software. Pythera's delivery team learns your operations, configures it and connects your systems.",
+      "columns": [
+        {
+          "label": "Platform",
+          "title": "PyNote",
+          "highlight": true,
+          "points": [
+            {
+              "title": "One standard across the company",
+              "text": "AI skills and workflows are set up once and shared by everyone."
+            },
+            {
+              "title": "Reports run on schedule",
+              "text": "Results go out by email, Slack, Teams or Telegram."
+            },
+            {
+              "title": "See who uses it, and how much",
+              "text": "Members, quotas and logs on one admin page."
+            }
+          ]
+        },
+        {
+          "label": "Delivery team",
+          "title": "Deployment engineers",
+          "highlight": false,
+          "points": [
+            {
+              "title": "Built around your operations",
+              "text": "We study the problem on-site, in your own environment."
+            },
+            {
+              "title": "Connects to what you already run",
+              "text": "Data and related systems are connected within the agreed scope."
+            },
+            {
+              "title": "With you until it's live",
+              "text": "Testing, user training, handover and operational support."
+            }
+          ]
+        }
+      ],
+      "show_mocks": true,
+      "mocks_aria": "Software interface",
+      "mock_skills": {
+        "label": "Skills",
+        "caption": "Set up once, shared across the organization.",
+        "items": [
+          {
+            "name": "sales-report",
+            "pill": "Shared",
+            "shared": true,
+            "text": "Builds reports on your company's KPI framework."
+          },
+          {
+            "name": "inventory-control",
+            "pill": "Shared",
+            "shared": true,
+            "text": "Calculates safety stock and reorder points."
+          },
+          {
+            "name": "contract-drafting",
+            "pill": "Personal",
+            "shared": false,
+            "text": "Drafts contracts from approved templates."
+          }
+        ]
+      },
+      "mock_schedule": {
+        "label": "Scheduled tasks",
+        "caption": "Reports run on schedule and reach the right people.",
+        "title": "Weekly revenue summary",
+        "text": "By channel, compared with the week before, exported to Excel.",
+        "days": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "active_day": 1,
+        "time_title": "8:00 a.m., weekly",
+        "time_text": "Send to: PyNote notification, email, group chat"
+      },
+      "mock_admin": {
+        "label": "Admin",
+        "caption": "Who uses it, how much, and with what results.",
+        "stats": [
+          {
+            "label": "Active members",
+            "value": "13 / 31"
+          },
+          {
+            "label": "Messages this month",
+            "value": "1,105"
+          },
+          {
+            "label": "Tokens used",
+            "value": "133 million"
+          },
+          {
+            "label": "Failed requests",
+            "value": "28"
+          }
+        ]
+      },
+      "cta_text": "Want to know which workflow to start with?",
+      "cta_label": "Book an assessment"
+    },
+    {
+      "type": "control",
+      "anchor": "kiem-soat",
+      "background": "alt",
+      "label": "Control and security",
+      "title": "You stay in control",
+      "cards": [
+        {
+          "label": "Permissions",
+          "title": "The right data for the right people",
+          "text": "Manage members and access by role."
+        },
+        {
+          "label": "Quotas",
+          "title": "Spending under control",
+          "text": "Set usage limits and get warned before you hit them."
+        },
+        {
+          "label": "Logs",
+          "title": "Every action leaves a trail",
+          "text": "Admin logs and usage reports let you trace anything when needed."
+        },
+        {
+          "label": "Approvers",
+          "title": "A checkpoint at key steps",
+          "text": "Important outputs go through an approver before reaching other systems."
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "anchor": "trien-khai",
+      "background": "default",
+      "label": "Delivery",
+      "title": "Delivery in five steps",
+      "intro": "Each step ends with a concrete deliverable you review before moving on.",
+      "steps": [
+        {
+          "n": "Step 1",
+          "title": "Assessment",
+          "text": "Clarify the problem, users, data and related systems.",
+          "output": "Output: scope of work"
+        },
+        {
+          "n": "Step 2",
+          "title": "Design",
+          "text": "Agree on tasks, process flow, integrations and quality criteria.",
+          "output": "Output: approved design"
+        },
+        {
+          "n": "Step 3",
+          "title": "Pilot",
+          "text": "Real users try it, and AI quality is measured against a test set.",
+          "output": "Output: test results"
+        },
+        {
+          "n": "Step 4",
+          "title": "Go live",
+          "text": "Move to production, train users and support them closely.",
+          "output": "Output: live system"
+        },
+        {
+          "n": "Step 5",
+          "title": "Acceptance",
+          "text": "Check against the agreed conditions and hand over.",
+          "output": "Output: signed acceptance"
+        }
+      ],
+      "done_label": "What “done” means",
+      "done_title": "Accepted when all five conditions are met",
+      "done_items": [
+        "Everything in scope runs in production.",
+        "Integrations run reliably.",
+        "AI quality meets the agreed threshold.",
+        "Users have been trained.",
+        "Documentation and runbooks are handed over."
+      ],
+      "done_note": "Out-of-scope work happens only with your written approval.",
+      "cta_text": "Talk to Pythera about your first workflow.",
+      "cta_label": "Book an assessment"
+    },
+    {
+      "type": "engagement",
+      "anchor": "hop-tac",
+      "background": "alt",
+      "label": "Engagement",
+      "title": "Two ways to work with us",
+      "intro": "Delivery fees are based on the time Pythera's team spends with you, from kickoff to acceptance. AI usage costs depend on the option you choose.",
+      "models": [
+        {
+          "title": "AI provided by Pythera",
+          "chip": "All-in-one",
+          "rows": [
+            {
+              "k": "How it works",
+              "v": "PyNote runs on AI models provided by Pythera."
+            },
+            {
+              "k": "AI cost",
+              "v": "Billed by usage plan, paid to Pythera."
+            },
+            {
+              "k": "After acceptance",
+              "v": "Renew your plan with Pythera to keep using it."
+            },
+            {
+              "k": "Best for",
+              "v": "A single point of contact and optimized cost."
+            }
+          ]
+        },
+        {
+          "title": "AI from another provider",
+          "chip": "Flexible",
+          "rows": [
+            {
+              "k": "How it works",
+              "v": "PyNote connects to AI models from the provider you've chosen."
+            },
+            {
+              "k": "AI cost",
+              "v": "You pay the provider directly."
+            },
+            {
+              "k": "After acceptance",
+              "v": "Keep paying the provider directly."
+            },
+            {
+              "k": "Best for",
+              "v": "You already have a contract or specific requirements with an AI provider."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "anchor": "hoi-dap",
+      "background": "default",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Does our data leave the company?",
+          "a": "It doesn't have to. For high-security environments, Pythera deploys privately on your own infrastructure. Admins see usage statistics but cannot read employees' conversations."
+        },
+        {
+          "q": "How soon will we see results?",
+          "a": "We start with an assessment and a trial on sample data, then pilot in one department and measure results before rolling out company-wide."
+        },
+        {
+          "q": "How is pricing structured?",
+          "a": "Delivery fees are based on the time Pythera's team spends with you. AI usage can be paid as a package through Pythera or directly to the provider you choose."
+        },
+        {
+          "q": "What if it doesn't deliver?",
+          "a": "Acceptance is based on five conditions agreed up front, including an AI quality threshold. If they aren't met, the work isn't accepted."
+        },
+        {
+          "q": "Do our staff need to code?",
+          "a": "No. Staff simply describe the task in plain language, like asking a colleague."
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "anchor": "lien-he",
+      "background": "default",
+      "title": "Start with one small workflow",
+      "text": "In the first assessment, Pythera works with you to pick one workflow, review the data and run a trial on sample data. Only then do we agree scope and acceptance criteria in writing.",
+      "assurances": [
+        {
+          "title": "No hidden extras",
+          "text": "Scope is written into the contract. Anything outside it needs your written approval."
+        },
+        {
+          "title": "A clear finish line",
+          "text": "Acceptance follows five conditions agreed on day one."
+        },
+        {
+          "title": "Your data stays under control",
+          "text": "Role-based permissions, spending limits and full logs."
+        }
+      ],
+      "form_heading": "Which area are you interested in?",
+      "interests_aria": "Area of interest",
+      "interests": [
+        "Healthcare",
+        "Business management",
+        "Financial analysis",
+        "Camera AI",
+        "AI Data Center",
+        "Customer service chatbot",
+        "Not sure yet"
+      ],
+      "name_label": "Full name",
+      "company_label": "Company",
+      "phone_label": "Phone",
+      "email_label": "Email",
+      "submit_label": "Book an assessment",
+      "done_title": "Thank you",
+      "done_text": "The Pythera team will contact you to schedule a call.",
+      "endpoint": "",
+      "err_name": "Please enter your name",
+      "err_company": "Please enter your company",
+      "err_phone": "Please leave a phone number",
+      "err_phone_invalid": "Please check the phone number",
+      "err_email": "Please check the email format",
+      "sending_label": "Sending",
+      "mailto_opened": "Your email app has opened with a pre-filled message. Press send to finish.",
+      "send_failed": "Couldn't send. Please try again or email <a href=\"mailto:contact@pythera.ai\">contact@pythera.ai</a>."
+    }
+  ]
+}

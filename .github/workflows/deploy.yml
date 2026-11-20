@@ -1,0 +1,40 @@
+# Khi nhánh `site` thay đổi (kể cả khi lưu từ CMS): build Astro rồi đẩy bản build sang nhánh gh-pages.
+# GitHub Pages vẫn phục vụ từ gh-pages như cũ, không cần đổi cài đặt Pages.
+name: Deploy site
+on:
+  push:
+    branches: [site]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: deploy-gh-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Push dist to gh-pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clone --depth 1 --branch gh-pages "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" out
+          find out -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -R dist/. out/
+          cd out
+          git add -A
+          if git diff --cached --quiet; then echo "Không có thay đổi"; exit 0; fi
+          git commit -m "Deploy từ ${GITHUB_SHA::7}"
+          git push origin gh-pages
+      - name: Request Pages build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true

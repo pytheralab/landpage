@@ -1,0 +1,40 @@
+---
+// Ghép trang từ danh sách section do CMS quản lý: thêm, bớt, đổi thứ tự trong CMS là trang đổi theo.
+import Base from '../layouts/Base.astro';
+import Hero from './sections/Hero.astro';
+import Sectors from './sections/Sectors.astro';
+import Partners from './sections/Partners.astro';
+import Problems from './sections/Problems.astro';
+import Calculator from './sections/Calculator.astro';
+import Solution from './sections/Solution.astro';
+import Control from './sections/Control.astro';
+import Process from './sections/Process.astro';
+import Engagement from './sections/Engagement.astro';
+import Faq from './sections/Faq.astro';
+import Contact from './sections/Contact.astro';
+import { getContent } from '../lib/content.js';
+
+const { locale } = Astro.props;
+const { home, site } = getContent(locale);
+const COMPONENTS = { hero: Hero, sectors: Sectors, partners: Partners, problems: Problems, calculator: Calculator, solution: Solution,
+  control: Control, process: Process, engagement: Engagement, faq: Faq, contact: Contact };
+const sections = home.sections.filter((s) => COMPONENTS[s.type] && s.enabled !== false);
+
+// Dữ liệu cho phần tương tác (JS) lấy đúng ngôn ngữ của trang
+const pick = (t) => sections.find((s) => s.type === t);
+const hero = pick('hero'), calc = pick('calculator'), contact = pick('contact');
+const pageData = {
+  locale,
+  email: site.contact_email,
+  hero: hero && { audiences: hero.audiences.map(({ key, title, lead, sectors, interest }) => ({ key, title, lead, sectors, interest })),
+    ba: hero.ba && { state_before: hero.ba.state_before, state_after: hero.ba.state_after, tabs: hero.ba.tabs } },
+  calc: calc && { fmt_people: calc.fmt_people, fmt_hours: calc.fmt_hours, fmt_rate: calc.fmt_rate, fmt_gain: calc.fmt_gain,
+    fmt_formula: calc.fmt_formula, thousands_sep: calc.thousands_sep },
+  form: contact && { err_name: contact.err_name, err_company: contact.err_company, err_phone: contact.err_phone,
+    err_phone_invalid: contact.err_phone_invalid, err_email: contact.err_email, sending_label: contact.sending_label,
+    submit_label: contact.submit_label, mailto_opened: contact.mailto_opened, send_failed: contact.send_failed },
+};
+---
+<Base locale={locale} site={site} pageData={pageData}>
+  {sections.map((s) => { const C = COMPONENTS[s.type]; return <C s={s} />; })}
+</Base>

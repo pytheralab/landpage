@@ -1,0 +1,53 @@
+{
+  "brand_name": "Pythera",
+  "brand_tagline": "AI solutions",
+  "seo_title": "Pythera · AI solutions for businesses, hospitals and factories",
+  "seo_description": "Pythera deploys AI for business management, finance, healthcare, cameras and data centers, from assessment to deployment and support until the system runs reliably.",
+  "og_image": "/og-image.png",
+  "site_url": "https://www.pythera.ai",
+  "default_theme": "light",
+  "nav_aria": "Main navigation",
+  "lang_aria": "Language",
+  "theme_aria": "Toggle light and dark mode",
+  "nav": [
+    {
+      "label": "Industries",
+      "href": "#linh-vuc"
+    },
+    {
+      "label": "Challenges",
+      "href": "#van-de"
+    },
+    {
+      "label": "Hidden cost",
+      "href": "#chi-phi"
+    },
+    {
+      "label": "Delivery",
+      "href": "#trien-khai"
+    },
+    {
+      "label": "FAQ",
+      "href": "#hoi-dap"
+    }
+  ],
+  "header_cta_label": "Book an assessment",
+  "header_cta_href": "#lien-he",
+  "company_name": "Pythera AI",
+  "contact_email": "contact@pythera.ai",
+  "phone": "",
+  "address": "",
+  "tax_code": "",
+  "footer_copyright": "© {year} Pythera AI",
+  "footer_note": "PyNote by Pythera",
+  "footer_links": [
+    {
+      "label": "Privacy policy",
+      "href": "/privacy.html"
+    },
+    {
+      "label": "Terms of use",
+      "href": "/terms.html"
+    }
+  ]
+}

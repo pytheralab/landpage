@@ -1,0 +1,1439 @@
+# Cấu hình Sveltia CMS cho www.pythera.ai — sinh tự động, sửa trong build_cms_config.py nếu đổi cấu trúc.
+# Bước 3 (đăng nhập GitHub qua Cloudflare Worker): thêm base_url vào backend.
+backend:
+  name: "github"
+  repo: "pytheralab/landpage"
+  branch: "main"
+media_folder: "public/media/uploads"
+public_folder: "/media/uploads"
+i18n:
+  structure: "multiple_files"
+  locales:
+    - "vi"
+    - "en"
+    - "ja"
+  default_locale: "vi"
+collections:
+  - name: "pages"
+    label: "Trang"
+    i18n: true
+    files:
+      - name: "home"
+        label: "Trang chủ"
+        file: "src/content/home.{{locale}}.json"
+        i18n: true
+        fields:
+          - name: "sections"
+            label: "Các section"
+            label_singular: "Section"
+            widget: "list"
+            i18n: true
+            hint: "Kéo để đổi thứ tự, bấm Thêm để chèn section mới."
+            types:
+              - name: "hero"
+                label: "Hero (đầu trang)"
+                summary: "Hero"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "audience_label"
+                    label: "Nhãn chọn loại đơn vị"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "audience_aria"
+                    label: "Mô tả cho trình đọc màn hình"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "audiences"
+                    label: "Loại đơn vị"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "key"
+                        label: "Mã"
+                        widget: "string"
+                        i18n: "duplicate"
+                        required: true
+                        hint: "Ví dụ dn, bv, nm"
+                      - name: "label"
+                        label: "Tên nút"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "title"
+                        label: "Tiêu đề lớn"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                      - name: "lead"
+                        label: "Mô tả"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                      - name: "visual"
+                        label: "Hình bên phải"
+                        widget: "select"
+                        options:
+                          - label: "Khung trước/sau"
+                            value: "ba"
+                          - label: "Y tế"
+                            value: "y-te"
+                          - label: "Quản trị doanh nghiệp"
+                            value: "quan-tri"
+                          - label: "Phân tích tài chính"
+                            value: "tai-chinh"
+                          - label: "Camera AI"
+                            value: "camera"
+                          - label: "AI Data Center"
+                            value: "aidc"
+                          - label: "Chatbot"
+                            value: "chatbot"
+                        i18n: "duplicate"
+                      - name: "sectors"
+                        label: "Mã lĩnh vực được làm nổi"
+                        widget: "list"
+                        field:
+                          name: "item"
+                          label: "Mã lĩnh vực được làm nổi"
+                          widget: "string"
+                        i18n: "duplicate"
+                        hint: "Mã trong section Lĩnh vực, ví dụ quan-tri"
+                      - name: "interest"
+                        label: "Lĩnh vực chọn sẵn trong form"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                        hint: "Phải trùng một lựa chọn trong section Liên hệ"
+                    summary: "{{fields.label}}"
+                  - name: "cta_primary_label"
+                    label: "Nút chính"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "cta_primary_href"
+                    label: "Link nút chính"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                  - name: "cta_secondary_label"
+                    label: "Nút phụ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "cta_secondary_href"
+                    label: "Link nút phụ"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                  - name: "ba"
+                    label: "Khung trước/sau"
+                    widget: "object"
+                    i18n: true
+                    fields:
+                      - name: "aria"
+                        label: "Mô tả cho trình đọc màn hình"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "tabs_aria"
+                        label: "Mô tả nhóm tab"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "state_before"
+                        label: "Nhãn trạng thái trước"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "state_after"
+                        label: "Nhãn trạng thái sau"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "switch_label"
+                        label: "Nhãn công tắc"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "tabs"
+                        label: "Các quy trình"
+                        widget: "list"
+                        i18n: true
+                        fields:
+                          - name: "label"
+                            label: "Tên tab"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                          - name: "before"
+                            label: "Các bước hôm nay"
+                            widget: "list"
+                            field:
+                              name: "item"
+                              label: "Các bước hôm nay"
+                              widget: "string"
+                            i18n: true
+                          - name: "before_out"
+                            label: "Kết quả hôm nay"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                          - name: "after"
+                            label: "Các bước khi có Pythera"
+                            widget: "list"
+                            field:
+                              name: "item"
+                              label: "Các bước khi có Pythera"
+                              widget: "string"
+                            i18n: true
+                          - name: "after_badge"
+                            label: "Nhãn kết quả"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                          - name: "after_out"
+                            label: "Kết quả khi có Pythera"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                        summary: "{{fields.label}}"
+              - name: "sectors"
+                label: "Lĩnh vực"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "intro"
+                    label: "Mô tả"
+                    widget: "text"
+                    i18n: true
+                    required: false
+                  - name: "cta_label"
+                    label: "Chữ nút trong card"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "items"
+                    label: "Các lĩnh vực"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "key"
+                        label: "Mã"
+                        widget: "string"
+                        i18n: "duplicate"
+                        required: true
+                        hint: "Ví dụ y-te; dùng để hero làm nổi card"
+                      - name: "title"
+                        label: "Tên"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "tagline"
+                        label: "Câu chính"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "points"
+                        label: "Các ý"
+                        widget: "list"
+                        field:
+                          name: "item"
+                          label: "Các ý"
+                          widget: "string"
+                        i18n: true
+                      - name: "audience"
+                        label: "Đối tượng"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "illustration"
+                        label: "Hình minh họa"
+                        widget: "select"
+                        options:
+                          - label: "Y tế"
+                            value: "y-te"
+                          - label: "Quản trị doanh nghiệp"
+                            value: "quan-tri"
+                          - label: "Phân tích tài chính"
+                            value: "tai-chinh"
+                          - label: "Camera AI"
+                            value: "camera"
+                          - label: "AI Data Center"
+                            value: "aidc"
+                          - label: "Chatbot"
+                            value: "chatbot"
+                        i18n: "duplicate"
+                      - name: "interest"
+                        label: "Lĩnh vực chọn sẵn trong form"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                    summary: "{{fields.title}}"
+                  - name: "core_label"
+                    label: "Nhãn nền tảng chung"
+                    widget: "string"
+                    i18n: true
+                    required: false
+                  - name: "core_items"
+                    label: "Nền tảng chung"
+                    widget: "list"
+                    field:
+                      name: "item"
+                      label: "Nền tảng chung"
+                      widget: "string"
+                    i18n: "duplicate"
+              - name: "partners"
+                label: "Đối tác"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "aria"
+                    label: "Mô tả cho trình đọc màn hình"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "logos"
+                    label: "Logo"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "name"
+                        label: "Tên đơn vị"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "image"
+                        label: "Logo (giữ nguyên màu gốc)"
+                        widget: "image"
+                        i18n: "duplicate"
+                    summary: "{{fields.name}}"
+              - name: "problems"
+                label: "Vấn đề"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "intro"
+                    label: "Mô tả"
+                    widget: "text"
+                    i18n: true
+                    required: true
+                  - name: "pains"
+                    label: "Nỗi lo"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "title"
+                        label: "Tiêu đề"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "text"
+                        label: "Nội dung"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                    summary: "{{fields.title}}"
+                  - name: "col_quote"
+                    label: "Cột 1"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "col_now"
+                    label: "Cột 2"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "col_new"
+                    label: "Cột 3"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "rows"
+                    label: "Các dòng so sánh"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "quote"
+                        label: "Câu nói"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "now"
+                        label: "Hôm nay"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                      - name: "new"
+                        label: "Với Pythera"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                    summary: "{{fields.quote}}"
+              - name: "calculator"
+                label: "Máy tính chi phí ẩn"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "intro"
+                    label: "Mô tả"
+                    widget: "text"
+                    i18n: true
+                    required: true
+                  - name: "people_label"
+                    label: "Nhãn số người"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "hours_label"
+                    label: "Nhãn số giờ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "rate_label"
+                    label: "Nhãn chi phí giờ công"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "auto_label"
+                    label: "Nhãn phần tự động hoá"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "default_people"
+                    label: "Mặc định: số người"
+                    widget: "number"
+                    value_type: "int"
+                    i18n: "duplicate"
+                    min: 1
+                    max: 100
+                  - name: "default_hours"
+                    label: "Mặc định: giờ mỗi tuần"
+                    widget: "number"
+                    value_type: "int"
+                    i18n: "duplicate"
+                    min: 1
+                    max: 20
+                  - name: "default_rate"
+                    label: "Mặc định: nghìn đồng mỗi giờ"
+                    widget: "number"
+                    value_type: "int"
+                    i18n: "duplicate"
+                    min: 50
+                    max: 500
+                  - name: "default_auto"
+                    label: "Mặc định: % tự động hoá"
+                    widget: "number"
+                    value_type: "int"
+                    i18n: "duplicate"
+                    min: 20
+                    max: 80
+                  - name: "result_lead"
+                    label: "Dòng trên kết quả"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "result_unit"
+                    label: "Đơn vị kết quả"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "days_label"
+                    label: "Nhãn ngày công"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "money_label"
+                    label: "Nhãn tiền"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "gain_label"
+                    label: "Nhãn phần lấy lại"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "cta_label"
+                    label: "Chữ nút"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "cta_href"
+                    label: "Link nút"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                  - name: "fmt_people"
+                    label: "Mẫu hiển thị số người"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                    hint: "Dùng {n}"
+                  - name: "fmt_hours"
+                    label: "Mẫu hiển thị số giờ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                    hint: "Dùng {n}"
+                  - name: "fmt_rate"
+                    label: "Mẫu hiển thị tiền"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                    hint: "Dùng {n}"
+                  - name: "fmt_gain"
+                    label: "Mẫu phần lấy lại"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                    hint: "Dùng {h} và {m}"
+                  - name: "fmt_formula"
+                    label: "Mẫu công thức"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                    hint: "Dùng {p} và {h}"
+                  - name: "thousands_sep"
+                    label: "Dấu phân cách hàng nghìn"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                    hint: "Tiếng Việt dùng dấu chấm, tiếng Anh và tiếng Nhật dùng dấu phẩy"
+              - name: "solution"
+                label: "Giải pháp"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "intro"
+                    label: "Mô tả"
+                    widget: "text"
+                    i18n: true
+                    required: false
+                  - name: "columns"
+                    label: "Các cột"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "label"
+                        label: "Nhãn nhỏ"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "title"
+                        label: "Tiêu đề"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "highlight"
+                        label: "Làm nổi bật"
+                        widget: "boolean"
+                        default: false
+                        i18n: "duplicate"
+                        required: false
+                      - name: "points"
+                        label: "Các ý"
+                        widget: "list"
+                        i18n: true
+                        fields:
+                          - name: "title"
+                            label: "Tiêu đề"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                          - name: "text"
+                            label: "Nội dung"
+                            widget: "text"
+                            i18n: true
+                            required: true
+                        summary: "{{fields.title}}"
+                    summary: "{{fields.title}}"
+                  - name: "show_mocks"
+                    label: "Hiện 3 ô giao diện mẫu"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "mocks_aria"
+                    label: "Mô tả cho trình đọc màn hình"
+                    widget: "string"
+                    i18n: true
+                    required: false
+                  - name: "mock_skills"
+                    label: "Ô giao diện: Kỹ năng"
+                    widget: "object"
+                    i18n: true
+                    fields:
+                      - name: "label"
+                        label: "Nhãn"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "caption"
+                        label: "Mô tả"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "items"
+                        label: "Các dòng"
+                        widget: "list"
+                        i18n: true
+                        fields:
+                          - name: "name"
+                            label: "Tên"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                          - name: "pill"
+                            label: "Nhãn nhỏ"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                          - name: "shared"
+                            label: "Nhãn màu xanh"
+                            widget: "boolean"
+                            default: true
+                            i18n: "duplicate"
+                            required: false
+                          - name: "text"
+                            label: "Mô tả"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                        summary: "{{fields.name}}"
+                  - name: "mock_schedule"
+                    label: "Ô giao diện: Việc định kỳ"
+                    widget: "object"
+                    i18n: true
+                    fields:
+                      - name: "label"
+                        label: "Nhãn"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "caption"
+                        label: "Mô tả"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "title"
+                        label: "Tên việc"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "text"
+                        label: "Mô tả việc"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "days"
+                        label: "Các ngày"
+                        widget: "list"
+                        field:
+                          name: "item"
+                          label: "Các ngày"
+                          widget: "string"
+                        i18n: true
+                      - name: "active_day"
+                        label: "Ngày được chọn (thứ tự)"
+                        widget: "number"
+                        value_type: "int"
+                        i18n: "duplicate"
+                        min: 1
+                        max: 7
+                      - name: "time_title"
+                        label: "Thời gian"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "time_text"
+                        label: "Nơi gửi"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                  - name: "mock_admin"
+                    label: "Ô giao diện: Quản trị"
+                    widget: "object"
+                    i18n: true
+                    fields:
+                      - name: "label"
+                        label: "Nhãn"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "caption"
+                        label: "Mô tả"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "stats"
+                        label: "Các chỉ số"
+                        widget: "list"
+                        i18n: true
+                        fields:
+                          - name: "label"
+                            label: "Tên"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                          - name: "value"
+                            label: "Giá trị"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                        summary: "{{fields.label}}"
+                  - name: "cta_text"
+                    label: "Dải kêu gọi: câu"
+                    widget: "string"
+                    i18n: true
+                    required: false
+                  - name: "cta_label"
+                    label: "Dải kêu gọi: nút"
+                    widget: "string"
+                    i18n: true
+                    required: false
+              - name: "control"
+                label: "Kiểm soát"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "cards"
+                    label: "Các thẻ"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "label"
+                        label: "Nhãn nhỏ"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "title"
+                        label: "Tiêu đề"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "text"
+                        label: "Nội dung"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                    summary: "{{fields.title}}"
+              - name: "process"
+                label: "Triển khai"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "intro"
+                    label: "Mô tả"
+                    widget: "text"
+                    i18n: true
+                    required: false
+                  - name: "steps"
+                    label: "Các bước"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "n"
+                        label: "Số thứ tự"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "title"
+                        label: "Tên bước"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "text"
+                        label: "Mô tả"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                      - name: "output"
+                        label: "Đầu ra"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                    summary: "{{fields.title}}"
+                  - name: "done_label"
+                    label: "Nhãn khối nghiệm thu"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "done_title"
+                    label: "Tiêu đề khối nghiệm thu"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "done_items"
+                    label: "Điều kiện nghiệm thu"
+                    widget: "list"
+                    field:
+                      name: "item"
+                      label: "Điều kiện nghiệm thu"
+                      widget: "string"
+                    i18n: true
+                  - name: "done_note"
+                    label: "Ghi chú"
+                    widget: "text"
+                    i18n: true
+                    required: false
+                  - name: "cta_text"
+                    label: "Dải kêu gọi: câu"
+                    widget: "string"
+                    i18n: true
+                    required: false
+                  - name: "cta_label"
+                    label: "Dải kêu gọi: nút"
+                    widget: "string"
+                    i18n: true
+                    required: false
+              - name: "engagement"
+                label: "Hợp tác"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "intro"
+                    label: "Mô tả"
+                    widget: "text"
+                    i18n: true
+                    required: false
+                  - name: "models"
+                    label: "Các phương án"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "title"
+                        label: "Tên phương án"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "chip"
+                        label: "Nhãn"
+                        widget: "string"
+                        i18n: true
+                        required: false
+                      - name: "rows"
+                        label: "Các dòng"
+                        widget: "list"
+                        i18n: true
+                        fields:
+                          - name: "k"
+                            label: "Mục"
+                            widget: "string"
+                            i18n: true
+                            required: true
+                          - name: "v"
+                            label: "Nội dung"
+                            widget: "text"
+                            i18n: true
+                            required: true
+                        summary: "{{fields.k}}"
+                    summary: "{{fields.title}}"
+              - name: "faq"
+                label: "Câu hỏi thường gặp"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "label"
+                    label: "Nhãn nhỏ"
+                    widget: "string"
+                    i18n: true
+                    required: false
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "items"
+                    label: "Các câu hỏi"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "q"
+                        label: "Câu hỏi"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "a"
+                        label: "Trả lời"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                    summary: "{{fields.q}}"
+              - name: "contact"
+                label: "Liên hệ"
+                summary: "{{fields.title}}"
+                fields:
+                  - name: "enabled"
+                    label: "Hiển thị section"
+                    widget: "boolean"
+                    default: true
+                    i18n: "duplicate"
+                    required: false
+                  - name: "anchor"
+                    label: "Mã neo (#)"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: true
+                    hint: "Dùng cho link trên menu, ví dụ linh-vuc. Chỉ chữ thường, số và dấu gạch ngang."
+                  - name: "background"
+                    label: "Nền section"
+                    widget: "select"
+                    options:
+                      - label: "Mặc định"
+                        value: "default"
+                      - label: "Dải nền tràn ngang"
+                        value: "alt"
+                    i18n: "duplicate"
+                    default: "default"
+                  - name: "title"
+                    label: "Tiêu đề"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "text"
+                    label: "Mô tả"
+                    widget: "text"
+                    i18n: true
+                    required: true
+                  - name: "assurances"
+                    label: "Cam kết"
+                    widget: "list"
+                    i18n: true
+                    fields:
+                      - name: "title"
+                        label: "Tiêu đề"
+                        widget: "string"
+                        i18n: true
+                        required: true
+                      - name: "text"
+                        label: "Nội dung"
+                        widget: "text"
+                        i18n: true
+                        required: true
+                    summary: "{{fields.title}}"
+                  - name: "form_heading"
+                    label: "Câu hỏi đầu form"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "interests_aria"
+                    label: "Mô tả nhóm lựa chọn"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "interests"
+                    label: "Các lựa chọn lĩnh vực"
+                    widget: "list"
+                    field:
+                      name: "item"
+                      label: "Các lựa chọn lĩnh vực"
+                      widget: "string"
+                    i18n: true
+                  - name: "name_label"
+                    label: "Nhãn họ tên"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "company_label"
+                    label: "Nhãn công ty"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "phone_label"
+                    label: "Nhãn điện thoại"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "email_label"
+                    label: "Nhãn email"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "submit_label"
+                    label: "Nút gửi"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "done_title"
+                    label: "Tiêu đề khi gửi xong"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "done_text"
+                    label: "Nội dung khi gửi xong"
+                    widget: "text"
+                    i18n: true
+                    required: true
+                  - name: "endpoint"
+                    label: "Địa chỉ nhận form"
+                    widget: "string"
+                    i18n: "duplicate"
+                    required: false
+                    hint: "Để trống thì form mở ứng dụng email"
+                  - name: "err_name"
+                    label: "Lỗi: thiếu họ tên"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "err_company"
+                    label: "Lỗi: thiếu công ty"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "err_phone"
+                    label: "Lỗi: thiếu điện thoại"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "err_phone_invalid"
+                    label: "Lỗi: điện thoại sai"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "err_email"
+                    label: "Lỗi: email sai"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "sending_label"
+                    label: "Chữ khi đang gửi"
+                    widget: "string"
+                    i18n: true
+                    required: true
+                  - name: "mailto_opened"
+                    label: "Thông báo khi mở ứng dụng email"
+                    widget: "text"
+                    i18n: true
+                    required: true
+                  - name: "send_failed"
+                    label: "Thông báo khi gửi lỗi"
+                    widget: "text"
+                    i18n: true
+                    required: true
+                    hint: "Được phép dùng thẻ <a>"
+  - name: "settings"
+    label: "Cài đặt chung"
+    i18n: true
+    files:
+      - name: "site"
+        label: "Thông tin website"
+        file: "src/content/site.{{locale}}.json"
+        i18n: true
+        fields:
+          - name: "brand_name"
+            label: "Tên thương hiệu"
+            widget: "string"
+            i18n: "duplicate"
+            required: true
+          - name: "brand_tagline"
+            label: "Dòng phụ cạnh logo"
+            widget: "string"
+            i18n: true
+            required: true
+          - name: "seo_title"
+            label: "Tiêu đề trang (SEO)"
+            widget: "string"
+            i18n: true
+            required: true
+          - name: "seo_description"
+            label: "Mô tả trang (SEO)"
+            widget: "text"
+            i18n: true
+            required: true
+          - name: "og_image"
+            label: "Ảnh khi chia sẻ link"
+            widget: "image"
+            i18n: "duplicate"
+          - name: "site_url"
+            label: "Địa chỉ website"
+            widget: "string"
+            i18n: "duplicate"
+            required: true
+          - name: "default_theme"
+            label: "Giao diện mặc định"
+            widget: "select"
+            options:
+              - label: "Sáng"
+                value: "light"
+              - label: "Tối"
+                value: "dark"
+            i18n: "duplicate"
+            default: "light"
+          - name: "nav_aria"
+            label: "Mô tả menu"
+            widget: "string"
+            i18n: true
+            required: true
+          - name: "lang_aria"
+            label: "Mô tả nút ngôn ngữ"
+            widget: "string"
+            i18n: true
+            required: true
+          - name: "theme_aria"
+            label: "Mô tả nút sáng/tối"
+            widget: "string"
+            i18n: true
+            required: true
+          - name: "nav"
+            label: "Menu"
+            widget: "list"
+            i18n: true
+            fields:
+              - name: "label"
+                label: "Chữ"
+                widget: "string"
+                i18n: true
+                required: true
+              - name: "href"
+                label: "Link"
+                widget: "string"
+                i18n: "duplicate"
+                required: true
+                hint: "Ví dụ #linh-vuc"
+            summary: "{{fields.label}}"
+          - name: "header_cta_label"
+            label: "Nút trên menu"
+            widget: "string"
+            i18n: true
+            required: true
+          - name: "header_cta_href"
+            label: "Link nút trên menu"
+            widget: "string"
+            i18n: "duplicate"
+            required: true
+          - name: "company_name"
+            label: "Tên pháp nhân"
+            widget: "string"
+            i18n: "duplicate"
+            required: true
+          - name: "contact_email"
+            label: "Email liên hệ"
+            widget: "string"
+            i18n: "duplicate"
+            required: true
+          - name: "phone"
+            label: "Hotline"
+            widget: "string"
+            i18n: "duplicate"
+            required: false
+          - name: "address"
+            label: "Địa chỉ"
+            widget: "string"
+            i18n: "duplicate"
+            required: false
+          - name: "tax_code"
+            label: "Mã số thuế"
+            widget: "string"
+            i18n: "duplicate"
+            required: false
+          - name: "footer_copyright"
+            label: "Bản quyền"
+            widget: "string"
+            i18n: true
+            required: true
+            hint: "Dùng {year} để tự điền năm"
+          - name: "footer_note"
+            label: "Dòng phụ ở footer"
+            widget: "string"
+            i18n: true
+            required: false
+          - name: "footer_links"
+            label: "Link ở footer"
+            widget: "list"
+            i18n: true
+            fields:
+              - name: "label"
+                label: "Chữ"
+                widget: "string"
+                i18n: true
+                required: true
+              - name: "href"
+                label: "Link"
+                widget: "string"
+                i18n: "duplicate"
+                required: true
+            summary: "{{fields.label}}"

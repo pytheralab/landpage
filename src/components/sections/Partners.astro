@@ -1,0 +1,15 @@
+---
+const { s } = Astro.props;
+---
+<section class:list={['section', 'partners', { alt: s.background === 'alt' }]} id={s.anchor} aria-label={s.aria}>
+  <div class="section-head">
+    <span class="label">{s.label}</span>
+    <h2>{s.title}</h2>
+  </div>
+  <div class="marquee">
+    <ul class="marquee-track">
+      {s.logos.map((l) => <li><span class="logo-tile"><img src={l.image} alt={l.name} loading="lazy" decoding="async"></span></li>)}
+      {s.logos.map((l) => <li aria-hidden="true"><span class="logo-tile"><img src={l.image} alt="" loading="lazy" decoding="async"></span></li>)}
+    </ul>
+  </div>
+</section>

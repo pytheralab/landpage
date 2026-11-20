@@ -1,0 +1,25 @@
+---
+import { illustration } from '../../lib/content.js';
+const { s } = Astro.props;
+---
+<section class:list={['section', 'sec-first', { alt: s.background === 'alt' }]} id={s.anchor}>
+  <div class="section-head">
+    <span class="label">{s.label}</span>
+    <h2>{s.title}</h2>
+    {s.intro && <p>{s.intro}</p>}
+  </div>
+  <div class="sol-grid">
+    {s.items.map((it) => (
+      <article class="sol" data-key={it.key}>
+        <figure class="sol-img ill" set:html={illustration(it.illustration)}></figure>
+        <h3>{it.title}</h3>
+        <p class="sol-t">{it.tagline}</p>
+        <ul>{it.points.map((p) => <li>{p}</li>)}</ul>
+        <div class="sol-f"><span>{it.audience}</span><a href="#lien-he" data-need={it.interest}>{s.cta_label}</a></div>
+      </article>
+    ))}
+  </div>
+  {s.core_items?.length > 0 && (
+    <div class="core"><span>{s.core_label}</span>{s.core_items.map((c, i) => <Fragment>{i > 0 && <i>·</i>}<b>{c}</b></Fragment>)}</div>
+  )}
+</section>

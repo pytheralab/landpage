@@ -1,0 +1,25 @@
+---
+const { s } = Astro.props;
+---
+<section class:list={['section', { alt: s.background === 'alt' }]} id={s.anchor}>
+  <div class="calc">
+    <div class="calc-in">
+      <span class="label">{s.label}</span>
+      <h2>{s.title}</h2>
+      <p class="calc-lead">{s.intro}</p>
+      <div class="rng"><div class="rng-h"><label for="cPeople">{s.people_label}</label><output id="oPeople"></output></div><input type="range" id="cPeople" min="1" max="100" value={s.default_people}></div>
+      <div class="rng"><div class="rng-h"><label for="cHours">{s.hours_label}</label><output id="oHours"></output></div><input type="range" id="cHours" min="1" max="20" value={s.default_hours}></div>
+      <div class="rng"><div class="rng-h"><label for="cRate">{s.rate_label}</label><output id="oRate"></output></div><input type="range" id="cRate" min="50" max="500" step="10" value={s.default_rate}></div>
+      <div class="rng"><div class="rng-h"><label for="cAuto">{s.auto_label}</label><output id="oAuto"></output></div><input type="range" id="cAuto" min="20" max="80" step="10" value={s.default_auto}></div>
+    </div>
+    <div class="calc-out" aria-live="polite">
+      <span class="calc-k">{s.result_lead}</span>
+      <b class="calc-big" id="rHours">0</b>
+      <span class="calc-u">{s.result_unit}</span>
+      <div class="calc-row"><div><b id="rDays">0</b><span>{s.days_label}</span></div><div><b id="rMoney">0</b><span>{s.money_label}</span></div></div>
+      <div class="calc-gain"><span>{s.gain_label}</span><b id="rGain"></b></div>
+      <p class="calc-f" id="rFormula"></p>
+      <a class="btn btn-primary" href={s.cta_href}>{s.cta_label}</a>
+    </div>
+  </div>
+</section>
