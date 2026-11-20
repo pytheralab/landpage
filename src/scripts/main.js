@@ -83,6 +83,7 @@
 
   // ---------- form để lại liên hệ
   var F = D.form || {};
+  var loadedAt = Date.now();
   var lead = document.getElementById('lead');
   function selectInterest(v) { var r = lead && $$('input[name="need"]', lead).filter(function (x) { return x.value === v; })[0]; if (r) r.checked = true; }
   if (lead) {
@@ -115,10 +116,12 @@
     function finish(msg) { if (msg) document.getElementById('leadDoneMsg').textContent = msg; lead.hidden = true; done.hidden = false; }
     lead.addEventListener('submit', function (e) {
       e.preventDefault(); status.textContent = '';
-      var bad = $$('input[name]:not([type=radio]):not([type=hidden]),textarea', lead).filter(function (el) { return el.name !== 'website' && !check(el); });
+      var bad = $$('input[name]:not([type=radio]):not([type=hidden]),textarea', lead).filter(function (el) { return el.name !== 'pt_hp' && !check(el); });
       if (bad.length) { bad[0].focus(); return; }
-      if (lead.website.value) return; // bot
-      var data = {}; new FormData(lead).forEach(function (v, k) { if (k !== 'website') data[k] = String(v).trim(); });
+      // bẫy bot: ô ẩn có chữ, hoặc gửi trong vòng 2 giây sau khi tải trang → giả vờ thành công, không gửi
+      var hp = lead.querySelector('[name=pt_hp]');
+      if ((hp && hp.value) || Date.now() - loadedAt < 2000) { finish(); return; }
+      var data = {}; new FormData(lead).forEach(function (v, k) { if (k !== 'pt_hp') data[k] = String(v).trim(); });
       data.source = location.href; data.locale = D.locale; data.consent = !!(lead.consent && lead.consent.checked);
       var endpoint = lead.getAttribute('data-endpoint');
       if (!endpoint) {

@@ -12,7 +12,7 @@ const HEADERS = ['Thời gian', 'Họ tên', 'Công ty', 'Điện thoại', 'Ema
 function doPost(e) {
   try {
     const data = JSON.parse((e && e.postData && e.postData.contents) || '{}');
-    if (data.website) return json({ ok: true }); // bot điền ô ẩn
+    if (data.website || data.pt_hp) return json({ ok: true }); // bot điền ô ẩn
     const v = {};
     FIELDS.forEach(function (k) { v[k] = String(data[k] || '').trim().slice(0, 500); });
     if (!v.name || !v.company || !v.phone || data.consent !== true) return json({ ok: false, error: 'invalid' });
